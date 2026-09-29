@@ -3,41 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Scuole Preziosine Milano e Monza | Dal Nido al Liceo Artistico</title>
-<meta name="description" content="Nido, Primavera, Infanzia, Primaria, Secondaria di I grado e Liceo Artistico a Milano e Monza. Scopri gli Open Day e come iscriverti.">
-<meta name="robots" content="index, follow">
-<!-- dominio ipotizzato nel brief: da confermare -->
-<link rel="canonical" href="https://scuole.preziosine.it/">
-<meta name="theme-color" content="#FBF7F3">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 56'%3E%3Cpath d='M24 2C24 2 4 24 4 36a20 20 0 0 0 40 0C44 24 24 2 24 2Z' fill='%23D9607A'/%3E%3C/svg%3E">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="it_IT">
-<meta property="og:site_name" content="Scuole Preziosine">
-<meta property="og:title" content="Scuole Preziosine a Milano e Monza">
-<meta property="og:description" content="Nido, Primavera, Infanzia, Primaria, Secondaria di I grado e Liceo Artistico nei campus di Milano e Monza.">
-<meta property="og:url" content="https://scuole.preziosine.it/">
-<meta property="og:image" content="https://scuole.preziosine.it/img/campus-monza.jpg">
-<meta property="og:image:alt" content="Il cortile alberato del Campus Monza visto dall’alto">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="img/campus-monza.jpg" fetchpriority="high">
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"EducationalOrganization",
-  "name":"Scuole Preziosine",
-  "url":"https://scuole.preziosine.it/",
-  "parentOrganization":{"@type":"Organization","name":"Congregazione Suore del Preziosissimo Sangue","url":"https://preziosine.it/"},
-  "subOrganization":[
-    {"@type":"School","name":"Istituto Comprensivo Preziosissimo Sangue – Campus Milano","telephone":"+39 02 2593344",
-     "address":{"@type":"PostalAddress","streetAddress":"Via Padre Placido Riccardi, 5","postalCode":"20132","addressLocality":"Milano","addressRegion":"MI","addressCountry":"IT"}},
-    {"@type":"School","name":"Istituto Comprensivo Preziosissimo Sangue – Campus Monza","telephone":"+39 039 2310699",
-     "address":{"@type":"PostalAddress","streetAddress":"Via Pesa del Lino, 1","postalCode":"20900","addressLocality":"Monza","addressRegion":"MB","addressCountry":"IT"}},
-    {"@type":"HighSchool","name":"Liceo Artistico Preziosissimo Sangue","telephone":"+39 039 2310699",
-     "address":{"@type":"PostalAddress","streetAddress":"Via Pesa del Lino, 1","postalCode":"20900","addressLocality":"Monza","addressRegion":"MB","addressCountry":"IT"}}
-  ]
-}
-</script>
+<title>Scuole Preziosine – Homepage</title>
+<meta name="description" content="Scuole Preziosine a Milano e Monza: Nido, Primavera, Infanzia, Primaria, Secondaria di I grado e Liceo Artistico.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
@@ -285,7 +252,7 @@ section{padding:120px 0}
 .news-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:36px}
 .tabs{display:flex;gap:8px;flex-wrap:wrap}
 .tabs button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:10px 17px;font:inherit;font-size:14.5px;font-weight:500;cursor:pointer;transition:.2s}
-
+.tabs button[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#fff}
 .news-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .card{background:#fff;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .4s,box-shadow .4s}
 .card:hover{transform:translateY(-6px);box-shadow:0 30px 50px -30px rgba(30,42,68,.35)}
@@ -435,38 +402,6 @@ p,li,small,.lead{text-wrap:pretty;hyphens:manual}
 .finder{padding-top:var(--s-sm)}
 #campus{padding-top:0}
 .nl{align-items:start}
-/* ===== accessibilità: colori per testo con contrasto AA (≥ 4,5:1) ===== */
-:root{--rosa-ui:#C0476A;--azzurro-ui:#007A94;--milano-t:#B8430F;--monza-t:#B52A70}
-.btn-rosa{background:var(--rosa-ui);box-shadow:0 4px 10px -6px rgba(192,71,106,.45)}
-.btn-rosa:hover{background:#A93A5B}
-.support{background:var(--rosa-ui)}
-.iscr{background:var(--azzurro-ui)}
-.logo-text span{color:var(--azzurro-ui)}
-.step b.num,.iscr-links a:hover{color:var(--azzurro-ui)}
-.campus.mi .more{color:var(--milano-t)}.campus.mb .more{color:var(--monza-t)}
-.toggle button[data-c=mi][aria-pressed=true]{background:var(--milano-t)}
-.toggle button[data-c=mb][aria-pressed=true]{background:var(--monza-t)}
-.card .meta span{color:var(--m,var(--azzurro-ui))}
-.card[data-t^=mb]{--m:var(--monza-t)}.card[data-t^=mi]{--m:var(--milano-t)}
-.tabs button[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
-.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-a[aria-disabled=true]{cursor:pointer}
-footer .f-h{font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-bottom:16px;font-weight:700;font-family:"DM Sans",sans-serif}
-.f-campus .f-h{display:flex;align-items:center;gap:8px;opacity:1}
-.f-campus .f-h::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--c)}
-footer address{font-style:normal}
-/* menu mobile */
-@media (max-width:1260px){
-  header.main.nav-open nav.primary{display:block;position:absolute;left:0;right:0;top:100%;background:var(--crema);border-bottom:1px solid var(--line);padding:var(--s-sm) 16px var(--s-md);max-height:calc(100vh - 120px);overflow:auto}
-  header.main.nav-open nav.primary ul{flex-direction:column;align-items:stretch;gap:0}
-  header.main.nav-open .sub{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;background:transparent;padding:0 0 var(--s-xs) var(--s-sm)}
-}
-/* testo sulle fasce colorate: niente trasparenze che abbassano il contrasto */
-.step{background:rgba(0,40,52,.22);border-color:rgba(255,255,255,.28)}
-.step:hover{background:rgba(0,40,52,.32)}
-.step small,.iscr > div > p,.support p,.way small,.musica p{opacity:1}
-.way{background:rgba(80,10,35,.16);border-color:rgba(255,255,255,.35)}
-.way:hover{background:rgba(80,10,35,.26)}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -499,7 +434,7 @@ footer address{font-style:normal}
       
       <span class="logo-text"><b>Preziosine</b><span>Scuole · Milano e Monza</span></span>
     </a>
-    <nav class="primary" id="menu-principale" aria-label="Menu principale">
+    <nav class="primary" aria-label="Menu principale">
       <ul>
         <li class="has-sub"><a href="#">Chi siamo</a>
           <div class="sub"><a href="#">Le Preziosine</a><a href="#">CU.BE sps srl</a><a href="#">Trasparenza</a></div></li>
@@ -515,52 +450,52 @@ footer address{font-style:normal}
     <div class="header-cta">
       <a href="#sostienici" class="btn btn-ghost">Sostienici</a>
       <a href="#iscrizioni" class="btn btn-rosa">Iscrizioni e Open Day</a>
-      <button type="button" class="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu-principale"><span></span><span></span><span></span></button>
+      <button class="burger" aria-label="Apri menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <main id="main">
   <!-- HERO -->
-  <section class="hero" aria-labelledby="t-hero">
+  <div class="hero">
     <div class="wrap">
       <div class="reveal">
         <span class="script">Le Preziosine, scuole che educano, accompagnano, fanno crescere!</span>
-        <h1 id="t-hero">Una scuola con radici profonde e uno <em>sguardo aperto</em> sul mondo.</h1>
+        <h1>Una scuola con radici profonde e uno <em>sguardo aperto</em> sul mondo.</h1>
         <p class="lead">Nido, Primavera, Infanzia, Primaria, Secondaria di I grado e Liceo Artistico nei campus di Milano e Monza.</p>
         <div class="ctas">
           <a href="#trova" class="btn btn-rosa">Trova la scuola giusta</a>
           <a href="#iscrizioni" class="btn btn-ghost">Prenota un Open Day</a>
         </div>
         <div class="stats">
-          <div><b data-count="148" aria-hidden="true">148</b><span><span class="sr-only">148 </span>anni di storia</span></div>
-          <div><b data-count="1300" aria-hidden="true">1.300</b><span><span class="sr-only">1.300 </span>persone iscritte ogni anno</span></div>
-          <div><b data-count="2" aria-hidden="true">2</b><span><span class="sr-only">2 </span>campus, Milano e Monza</span></div>
+          <div><b data-count="148">148</b><span>anni di storia</span></div>
+          <div><b data-count="1300">1.300</b><span>persone iscritte ogni anno</span></div>
+          <div><b data-count="2">2</b><span>campus, Milano e Monza</span></div>
         </div>
       </div>
-      <div class="emblem">
-        <div class="sq"><img src="img/campus-monza.jpg" alt="Il cortile alberato del Campus Monza visto dall’alto" width="1920" height="1080" fetchpriority="high" decoding="async"></div>
-        <svg class="lines" viewBox="0 0 60 60" aria-hidden="true" focusable="false"><circle cx="30" cy="31" r="21.5" pathLength="1"/><path class="tri" d="M30 9.5 48.6 41.7H11.4Z" pathLength="1"/></svg>
+      <div class="emblem" aria-hidden="true">
+        <div class="sq"><img src="img/campus-monza.jpg" alt=""></div>
+        <svg class="lines" viewBox="0 0 60 60"><circle cx="30" cy="31" r="21.5" pathLength="1"/><path class="tri" d="M30 9.5 48.6 41.7H11.4Z" pathLength="1"/></svg>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- FINDER -->
-  <div class="band" id="trova" role="region" aria-labelledby="t-trova">
+  <div class="band" id="trova">
     <div class="finder">
       <div class="finder-head reveal">
         <div>
-          <h2 id="t-trova">Trova la scuola giusta</h2>
+          <h2>Trova la scuola giusta</h2>
           <p>Seleziona il campus per vedere le scuole disponibili.</p>
         </div>
         <div class="toggle" role="group" aria-label="Filtra per campus">
-          <button type="button" aria-pressed="true" data-c="all">Entrambi</button>
-          <button type="button" aria-pressed="false" data-c="mi">Milano</button>
-          <button type="button" aria-pressed="false" data-c="mb">Monza</button>
+          <button aria-pressed="true" data-c="all">Entrambi</button>
+          <button aria-pressed="false" data-c="mi">Milano</button>
+          <button aria-pressed="false" data-c="mb">Monza</button>
         </div>
       </div>
       <div class="paths stagger">
-        <a href="#" class="path p-nido" data-c="mi"><span class="age">0–3 anni</span><h3>Nido</h3><div class="where"><span class="tag">Milano</span></div></a>
+        <a href="#" class="path p-nido new" data-c="mi"><span class="badge">Novità</span><span class="age">0–3 anni</span><h3>Nido</h3><div class="where"><span class="tag">Milano</span></div></a>
         <a href="#" class="path p-prim" data-c="mi"><span class="age">2–3 anni</span><h3>Primavera</h3><div class="where"><span class="tag">Milano</span></div></a>
         <a href="#" class="path p-inf" data-c="mi mb"><span class="age">3–6 anni</span><h3>Infanzia</h3><div class="where"><span class="tag">Milano</span><span class="tag">Monza</span></div></a>
         <a href="#" class="path p-pri" data-c="mi mb"><span class="age">6–11 anni</span><h3>Primaria</h3><div class="where"><span class="tag">Milano</span><span class="tag">Monza</span></div></a>
@@ -571,33 +506,33 @@ footer address{font-style:normal}
   </div>
 
   <!-- CAMPUS -->
-  <section id="campus" aria-labelledby="t-campus">
+  <section id="campus">
     <div class="wrap">
       <div class="sec-head reveal">
-        <h2 id="t-campus">I nostri campus</h2>
+        <h2>I nostri campus</h2>
         <p>Le nostre scuole si trovano a Milano e a Monza.</p>
       </div>
       <div class="campus-grid stagger">
         <article class="campus mi">
-          <div class="img"><img src="img/campus-milano.jpg" alt="Il Campus Milano visto dall’alto" width="1920" height="1080" loading="lazy" decoding="async"><span>Milano</span><b class="sym"><svg><use href="#mark"/></svg></b></div>
+          <div class="img"><img src="img/campus-milano.jpg" alt="Il Campus Milano visto dall’alto"><span>Milano</span><b class="sym"><svg><use href="#mark"/></svg></b></div>
           <div class="body">
             <h3>Campus Milano</h3>
             <p>Istituto Comprensivo con Nido, Primavera, Scuola dell’Infanzia, Primaria e Secondaria di I grado. Il campus ha un’area verde di 6.900 mq.</p>
             <div class="chips"><span style="--d:var(--nido)">Nido</span><span style="--d:var(--nido)">Primavera</span><span style="--d:var(--infanzia)">Infanzia</span><span style="--d:var(--primaria)">Primaria</span><span style="--d:var(--secondaria)">Secondaria di I grado</span></div>
             <div class="facts"><div><b>40</b><small>aule</small></div><div><b>6</b><small>laboratori</small></div><div><b>6.900 mq</b><small>area verde</small></div></div>
             <p style="font-size:14px">Via Padre Placido Riccardi, 5 · 20132 Milano (MI)</p>
-            <a class="more" role="link" aria-disabled="true" tabindex="0">Scopri il Campus Milano</a>
+            <a class="more">Scopri il Campus Milano</a>
           </div>
         </article>
         <article class="campus mb">
-          <div class="img"><img src="img/scuole-monza-preziosine-2.jpg" alt="Il cortile ad anfiteatro del Campus Monza" width="1006" height="742" loading="lazy" decoding="async"><span>Monza</span><b class="sym"><svg><use href="#mark"/></svg></b></div>
+          <div class="img"><img src="img/scuole-monza-preziosine-2.jpg" alt="Il cortile del Campus Monza"><span>Monza</span><b class="sym"><svg><use href="#mark"/></svg></b></div>
           <div class="body">
             <h3>Campus Monza</h3>
             <p>Istituto Comprensivo con Scuola dell’Infanzia, Primaria, Secondaria di I grado e il Liceo Artistico.</p>
             <div class="chips"><span style="--d:var(--infanzia)">Infanzia</span><span style="--d:var(--primaria)">Primaria</span><span style="--d:var(--secondaria)">Secondaria di I grado</span><span style="--d:var(--liceo)">Liceo Artistico</span></div>
             <div class="facts"><div><b>50</b><small>aule</small></div><div><b>14</b><small>laboratori</small></div><div><b>1</b><small>teatro</small></div><div><b>2</b><small>biblioteche</small></div></div>
             <p style="font-size:14px">Via Pesa del Lino, 1 · 20900 Monza (MB)</p>
-            <a class="more" role="link" aria-disabled="true" tabindex="0">Scopri il Campus Monza</a>
+            <a class="more">Scopri il Campus Monza</a>
           </div>
         </article>
       </div>
@@ -605,10 +540,10 @@ footer address{font-style:normal}
   </section>
 
   <!-- UNA MUSICA PER TUTTI -->
-  <div class="band" id="musica" role="region" aria-labelledby="t-musica">
+  <div class="band" id="musica">
     <div class="musica">
       <div class="txt reveal">
-        <h2 id="t-musica">Una Musica per Tutti</h2>
+        <h2>Una Musica per Tutti</h2>
         <p>Una Scuola di Musica innovativa e inclusiva a Monza, aperta al territorio e capace di includere la disabilità. Al centro non ci sono virtuosismo e tecnicismo, ma l’ascolto come prima qualità di chi fa musica.</p>
         <ul>
           <li>La musica come arte che stimola comunicazione, relazione, apprendimento, motricità ed espressione</li>
@@ -617,22 +552,22 @@ footer address{font-style:normal}
           <li>Borse di studio per giovani musicisti</li>
         </ul>
         <div class="ctas">
-          <a role="link" aria-disabled="true" tabindex="0" class="btn btn-rosa">Scopri il progetto</a>
-          <a role="link" aria-disabled="true" tabindex="0" class="btn btn-line-w">Dona per questo progetto</a>
+          <a class="btn btn-rosa">Scopri il progetto</a>
+          <a class="btn btn-line-w">Dona per questo progetto</a>
         </div>
       </div>
       <div class="pics">
-        <img class="p1" src="img/morgan-e-friends-allegromoderato_gallery.jpg" alt="Ragazze e ragazzi suonano il violoncello sul palco durante il concerto Morgan &amp; Friends" width="1600" height="1068" loading="lazy" decoding="async">
+        <img class="p1" src="img/morgan-e-friends-allegromoderato_gallery.jpg" alt="Ragazze e ragazzi suonano il violoncello sul palco durante il concerto Morgan &amp; Friends">
         <svg class="wave" viewBox="0 0 800 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C 50 0, 100 60, 150 30 S 250 0, 300 30 S 400 60, 450 30 S 550 0, 600 30 S 700 60, 800 30"/></svg>
       </div>
     </div>
   </div>
 
   <!-- PERCHÉ SCEGLIERCI -->
-  <section id="perche" aria-labelledby="t-perche">
+  <section id="perche">
     <div class="wrap">
       <div class="sec-head reveal">
-        <h2 id="t-perche">Perché sceglierci</h2>
+        <h2>Perché sceglierci</h2>
         <p>L’educazione è il cuore della missione delle Suore del Preziosissimo Sangue. A Monza l’Istituto Comprensivo nasce insieme alla Congregazione, nel 1876.</p>
       </div>
       <div class="why-grid stagger">
@@ -645,10 +580,10 @@ footer address{font-style:normal}
   </section>
 
   <!-- ISCRIZIONI -->
-  <div class="band" id="iscrizioni" role="region" aria-labelledby="t-iscr">
+  <div class="band" id="iscrizioni">
     <div class="iscr">
       <div class="reveal">
-        <h2 id="t-iscr">Iscrizioni e Open Day</h2>
+        <h2>Iscrizioni e Open Day</h2>
         <p>L’iscrizione alle classi prime di Infanzia, Primaria, Secondaria di I grado e Liceo Artistico parte dagli Open Day.</p>
         <div class="openday">
           <a href="#" class="od-mi">Comprensivo Milano<small>Prossimo: 21/11/2026 ore 9.00</small></a>
@@ -661,18 +596,18 @@ footer address{font-style:normal}
         <div class="step"><b class="num">2</b><div><b>Partecipa agli Open Day</b><small>Per la scuola 0–3 anni di Milano: Every Day Open Day</small></div></div>
         <div class="step"><b class="num">3</b><div><b>Incontra i Coordinatori</b><small>Dopo l’Open Day richiedi il colloquio conoscitivo</small></div></div>
         <div class="step"><b class="num">4</b><div><b>Perfeziona l’iscrizione</b><small>Con l’accettazione della scuola e la consegna dei documenti</small></div></div>
-        <a role="link" aria-disabled="true" tabindex="0" class="btn btn-white" style="justify-self:start;margin-top:8px">Registrati a un Open Day</a>
-        <p class="iscr-links"><a role="link" aria-disabled="true" tabindex="0">Iscrizione ad altre classi</a><a role="link" aria-disabled="true" tabindex="0">Già iscritti: area riservata</a><a role="link" aria-disabled="true" tabindex="0">Rette e aiuti per le famiglie</a></p>
+        <a class="btn btn-white" style="justify-self:start;margin-top:8px">Registrati a un Open Day</a>
+        <p class="iscr-links"><a>Iscrizione ad altre classi</a><a>Già iscritti: area riservata</a><a>Rette e aiuti per le famiglie</a></p>
       </div>
     </div>
   </div>
 
   <!-- EXTRA -->
-  <section id="extra" aria-labelledby="t-extra">
+  <section id="extra">
     <div class="wrap">
       <div class="sec-head reveal">
-        <h2 id="t-extra">Offerta extrascolastica</h2>
-        <p>Attività pomeridiane per Infanzia, Primaria e Secondaria. A Monza anche pre-scuola e, per Infanzia e Primaria, orario prolungato fino alle 18.30. Il programma completo è nei Documenti utili.</p>
+        <h2>Offerta extrascolastica</h2>
+        <p>Attività pomeridiane per Infanzia, Primaria e Secondaria. A Monza anche pre-scuola e orario prolungato fino alle 18.30. Il programma completo è nei Documenti utili.</p>
       </div>
       <div class="extra-grid stagger">
         <a href="#" class="extra x1"><h3>Compiti e studio assistito</h3><small>Milano e Monza</small><svg viewBox="0 0 60 60" aria-hidden="true"><rect x="6" y="6" width="48" height="48" rx="8"/></svg></a>
@@ -684,36 +619,36 @@ footer address{font-style:normal}
   </section>
 
   <!-- NEWS -->
-  <section id="news" style="padding-top:0" aria-labelledby="t-news">
+  <section id="news" style="padding-top:0">
     <div class="wrap">
       <div class="news-head reveal">
-        <div><h2 id="t-news">News ed eventi</h2></div>
-        <div class="tabs" role="group" aria-label="Filtra le news">
-          <button type="button" aria-pressed="true" data-t="all">Tutte</button>
-          <button type="button" aria-pressed="false" data-t="mi">Campus Milano</button>
-          <button type="button" aria-pressed="false" data-t="mb">Campus Monza</button>
-          <button type="button" aria-pressed="false" data-t="la">Liceo Artistico</button>
-          <button type="button" aria-pressed="false" data-t="mu">Una Musica per Tutti</button>
+        <div><h2>News ed eventi</h2></div>
+        <div class="tabs" role="tablist">
+          <button role="tab" aria-selected="true" data-t="all">Tutte</button>
+          <button role="tab" aria-selected="false" data-t="mi">Campus Milano</button>
+          <button role="tab" aria-selected="false" data-t="mb">Campus Monza</button>
+          <button role="tab" aria-selected="false" data-t="la">Liceo Artistico</button>
+          <button role="tab" aria-selected="false" data-t="mu">Una Musica per Tutti</button>
         </div>
       </div>
       <div class="news-grid stagger">
-        <a role="link" aria-disabled="true" tabindex="0" class="card" data-t="mb"><div class="th"><img src="img/img-giugno-a-teatro.jpg" alt="Locandina di Giugno a Teatro" width="900" height="642" loading="lazy" decoding="async"></div><div class="b"><div class="meta"><span>Campus Monza</span>4–8 giugno</div><h3>Giugno a Teatro</h3></div></a>
-        <a role="link" aria-disabled="true" tabindex="0" class="card" data-t="mb mu"><div class="th"><img src="img/img-Programma-Armonie-di-Maggio_A4.jpg" alt="Locandina di Armonie di Maggio – Per Crescere in Musica" width="900" height="642" loading="lazy" decoding="async"></div><div class="b"><div class="meta"><span>Campus Monza</span>Maggio</div><h3>Armonie di Maggio – Per Crescere in Musica</h3></div></a>
-        <a role="link" aria-disabled="true" tabindex="0" class="card" data-t="mi"><div class="th"><img src="img/img-festa-del-libro.jpg" alt="Locandina della Festa del Libro e delle Storie 2026" width="900" height="642" loading="lazy" decoding="async"></div><div class="b"><div class="meta"><span>Campus Milano</span>16–22 maggio</div><h3>Festa del Libro e delle Storie</h3></div></a>
-        <a role="link" aria-disabled="true" tabindex="0" class="card" data-t="mb"><div class="th"><img src="img/open-day-teatroterapia.jpg" alt="Locandina del Laboratorio di Teatroterapia" width="900" height="642" loading="lazy" decoding="async"></div><div class="b"><div class="meta"><span>Campus Monza</span>21 maggio</div><h3>Laboratorio di Teatroterapia per bambini e adolescenti</h3></div></a>
-        <a role="link" aria-disabled="true" tabindex="0" class="card hide" data-t="la"><div class="th"><img src="img/giornata-dell-arte-2026.jpg" alt="Locandina della Giornata dell’Arte 2026 del Liceo Artistico" width="900" height="642" loading="lazy" decoding="async"></div><div class="b"><div class="meta"><span>Liceo Artistico</span>9–27 maggio</div><h3>Giornata dell’Arte: il Liceo Artistico “si fa Arte”</h3></div></a>
+        <a class="card" data-t="mb"><div class="th"><img src="img/img-giugno-a-teatro.jpg" alt=""></div><div class="b"><div class="meta"><span>Campus Monza</span>4–8 giugno</div><h3>Giugno a Teatro</h3></div></a>
+        <a class="card" data-t="mb mu"><div class="th"><img src="img/img-Programma-Armonie-di-Maggio_A4.jpg" alt=""></div><div class="b"><div class="meta"><span>Campus Monza</span>Maggio</div><h3>Armonie di Maggio – Per Crescere in Musica</h3></div></a>
+        <a class="card" data-t="mi"><div class="th"><img src="img/img-festa-del-libro.jpg" alt=""></div><div class="b"><div class="meta"><span>Campus Milano</span>16–22 maggio</div><h3>Festa del Libro e delle Storie</h3></div></a>
+        <a class="card" data-t="mb"><div class="th"><img src="img/open-day-teatroterapia.jpg" alt=""></div><div class="b"><div class="meta"><span>Campus Monza</span>21 maggio</div><h3>Laboratorio di Teatroterapia per bambini e adolescenti</h3></div></a>
+        <a class="card hide" data-t="la"><div class="th"><img src="img/giornata-dell-arte-2026.jpg" alt=""></div><div class="b"><div class="meta"><span>Liceo Artistico</span>9–27 maggio</div><h3>Giornata dell’Arte: il Liceo Artistico “si fa Arte”</h3></div></a>
       </div>
-      <p class="more-news"><a role="link" aria-disabled="true" tabindex="0" class="btn btn-ghost">Tutte le news</a></p>
+      <p class="more-news"><a class="btn btn-ghost">Tutte le news</a></p>
     </div>
   </section>
 
   <!-- SOSTIENICI -->
-  <div class="band" id="sostienici" role="region" aria-labelledby="t-sost">
+  <div class="band" id="sostienici">
     <div class="support">
       <div class="reveal">
-        <h2 id="t-sost">Sostienici</h2>
-        <p>Con una donazione aiuti le famiglie in difficoltà economica, garantisci più ore di sostegno a chi ne ha bisogno e contribuisci a Una Musica per Tutti, la scuola di musica inclusiva. Le donazioni sono deducibili.</p>
-        <a role="link" aria-disabled="true" tabindex="0" class="btn" style="background:var(--ink);color:#fff">Dona ora</a>
+        <h2>Sostienici</h2>
+        <p>Con una donazione sostieni borse di studio, la scuola di musica inclusiva e i progetti educativi dei nostri campus. Le donazioni godono di vantaggi fiscali.</p>
+        <a class="btn" style="background:var(--ink);color:#fff">Dona ora</a>
       </div>
       <div class="ways stagger">
         <div class="way"><b>Donazione singola o ricorrente</b><small>Carta di credito, PayPal, Satispay, bonifico, RID</small></div>
@@ -724,16 +659,16 @@ footer address{font-style:normal}
   </div>
 
   <!-- NEWSLETTER -->
-  <section id="newsletter" style="padding-bottom:0" aria-labelledby="t-nl">
+  <section id="newsletter" style="padding-bottom:0">
     <div class="wrap">
       <div class="nl reveal">
         <div>
-          <h2 id="t-nl">Iscriviti alla newsletter</h2>
+          <h2>Iscriviti alla newsletter</h2>
         </div>
         <form onsubmit="event.preventDefault()">
-          <label for="nl-mail" class="sr-only">Indirizzo email</label>
-          <input id="nl-mail" name="email" type="email" autocomplete="email" placeholder="La tua email" required>
-          <label class="chk" for="nl-privacy"><input id="nl-privacy" name="privacy" type="checkbox" required><span>Ho letto l’<a href="#">informativa privacy</a> e acconsento al trattamento dei dati per l’invio della newsletter.</span></label>
+          <label for="nl-mail" hidden>Email</label>
+          <input id="nl-mail" type="email" placeholder="La tua email" required>
+          <label class="chk"><input type="checkbox" required><span>Ho letto l’<a href="#">informativa privacy</a> e acconsento al trattamento dei dati per l’invio della newsletter.</span></label>
           <button class="btn btn-rosa" style="justify-self:start">Iscriviti alla newsletter</button>
         </form>
       </div>
@@ -749,21 +684,21 @@ footer address{font-style:normal}
         <p style="margin-top:18px;max-width:320px">Scuole a Milano e Monza, dal Nido al Liceo Artistico.</p>
       </div>
       <div class="f-campus" style="--c:var(--milano)">
-        <h2 class="f-h">Campus Milano</h2>
-        <address>Via Padre Placido Riccardi, 5<br>20132 Milano (MI)<br><a href="tel:+39022593344">+39 02 2593344</a></address>
-        <div class="social"><a role="link" aria-disabled="true" tabindex="0" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.5-1 1-1h2.3V2.2L14.2 2C11 2 10.2 4.3 10.2 6v2.5H7.8V12h2.4v10H14V12h2.9l.5-3.5Z"/></svg></a><a role="link" aria-disabled="true" tabindex="0" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3"/></svg></a></div>
+        <h4>Campus Milano</h4>
+        <p>Via Padre Placido Riccardi, 5<br>20132 Milano (MI)<br><a href="tel:+39022593344">+39 02 2593344</a></p>
+        <div class="social"><a aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.5-1 1-1h2.3V2.2L14.2 2C11 2 10.2 4.3 10.2 6v2.5H7.8V12h2.4v10H14V12h2.9l.5-3.5Z"/></svg></a><a aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3"/></svg></a></div>
       </div>
       <div class="f-campus" style="--c:var(--monza)">
-        <h2 class="f-h">Campus Monza</h2>
-        <address>Via Pesa del Lino, 1<br>20900 Monza (MB)<br><a href="tel:+390392310699">+39 039 2310699</a></address>
-        <div class="social"><a role="link" aria-disabled="true" tabindex="0" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.5-1 1-1h2.3V2.2L14.2 2C11 2 10.2 4.3 10.2 6v2.5H7.8V12h2.4v10H14V12h2.9l.5-3.5Z"/></svg></a><a role="link" aria-disabled="true" tabindex="0" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3"/></svg></a></div>
+        <h4>Campus Monza</h4>
+        <p>Via Pesa del Lino, 1<br>20900 Monza (MB)<br><a href="tel:+390392310699">+39 039 2310699</a></p>
+        <div class="social"><a aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5V6.8c0-.8.5-1 1-1h2.3V2.2L14.2 2C11 2 10.2 4.3 10.2 6v2.5H7.8V12h2.4v10H14V12h2.9l.5-3.5Z"/></svg></a><a aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3"/></svg></a></div>
         <p style="margin-top:14px;font-size:13px;opacity:.7">Una Musica per Tutti</p>
-        <div class="social"><a role="link" aria-disabled="true" tabindex="0" aria-label="Instagram Una Musica per Tutti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3"/></svg></a></div>
+        <div class="social"><a aria-label="Instagram Una Musica per Tutti"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3"/></svg></a></div>
       </div>
       <div>
-        <h2 class="f-h">Informazioni</h2>
-        <ul><li><a role="link" aria-disabled="true" tabindex="0">Contattaci</a></li><li><a role="link" aria-disabled="true" tabindex="0">Iscrizioni e Open Day</a></li><li><a role="link" aria-disabled="true" tabindex="0">Documenti utili</a></li><li><a role="link" aria-disabled="true" tabindex="0">Trasparenza</a></li><li><a role="link" aria-disabled="true" tabindex="0">Sostienici</a></li></ul>
-        <h2 class="f-h" style="margin-top:28px">Ospitalità</h2>
+        <h4>Informazioni</h4>
+        <ul><li><a>Contattaci</a></li><li><a>Iscrizioni e Open Day</a></li><li><a>Documenti utili</a></li><li><a>Trasparenza</a></li><li><a>Sostienici</a></li></ul>
+        <h4 style="margin-top:28px">Ospitalità</h4>
         <ul><li><a href="https://www.casaraggiodisole.com/" target="_blank" rel="noopener">Casa Raggio di Sole, Pasturo</a></li><li><a href="https://www.casapreziosissimosangue.it/" target="_blank" rel="noopener">Casa Preziosissimo Sangue, Roma</a></li></ul>
       </div>
     </div>
@@ -783,19 +718,13 @@ document.querySelectorAll('.toggle button').forEach(b=>b.onclick=()=>{
 });
 // tab news
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
   const t=b.dataset.t;let n=0;
   document.querySelectorAll('.card').forEach(c=>{const ok=(t==='all'||c.dataset.t.includes(t))&&n<4;c.classList.toggle('hide',!ok);if(ok)n++;});
 });
 // header all'avvio dello scroll
 const hd=document.querySelector('header.main');
 addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>10),{passive:true});
-// menu mobile
-const burger=document.querySelector('.burger');
-burger.addEventListener('click',()=>{const open=hd.classList.toggle('nav-open');burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Chiudi il menu':'Apri il menu')});
-addEventListener('keydown',e=>{if(e.key==='Escape'&&hd.classList.contains('nav-open')){hd.classList.remove('nav-open');burger.setAttribute('aria-expanded','false');burger.focus()}});
-// link segnaposto: attivabili anche da tastiera, senza navigare
-document.querySelectorAll('a[aria-disabled=true]').forEach(a=>a.addEventListener('keydown',e=>{if(e.key==='Enter')e.preventDefault()}));
 // comparsa allo scroll
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
