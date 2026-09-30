@@ -638,14 +638,14 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .way:hover{background:#9C3656}
 @media (max-width:900px){.support::before{left:-220px;bottom:-320px}.support::after{right:-140px;top:-170px}}
 /* ===== hero: tessere di Truchet =====
-   griglia di quadrati; in ogni quadrato due archi di quarto di cerchio,
-   ruotati di 0° o 90°. Gli archi si uniscono in linee continue:
-   un mosaico nato da una regola sola */
+   la tessera originale di Sébastien Truchet (1704): un quadrato diviso dalla diagonale,
+   orientata in un verso o nell’altro. Le diagonali formano un intreccio di linee spezzate;
+   alcune metà triangolari sono colorate. Un mosaico nato da una regola sola */
 .truchet{position:absolute;inset:0;width:100%;height:100%;max-width:none;z-index:0;pointer-events:none;
   -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 38%,#000 62%),linear-gradient(180deg,#000 78%,transparent 100%);-webkit-mask-composite:source-in;
   mask-image:linear-gradient(90deg,transparent 0%,transparent 38%,#000 62%),linear-gradient(180deg,#000 78%,transparent 100%);mask-composite:intersect}
-.truchet path{fill:none;stroke:var(--azzurro);stroke-width:1.4;opacity:.28;stroke-linecap:round}
-.truchet path.r{stroke:var(--rosa);opacity:.45}
+.truchet path{fill:none;stroke:var(--azzurro);stroke-width:1.2;opacity:.3;stroke-linecap:round}
+.truchet path.r{fill:var(--rosa);stroke:none;opacity:.14}
 .hero > .wrap{position:relative;z-index:1}
 @media (max-width:1100px){
   .truchet{-webkit-mask-image:linear-gradient(180deg,transparent 0%,transparent 42%,#000 66%,#000 86%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,transparent 42%,#000 66%,#000 86%,transparent 100%);-webkit-mask-composite:source-over;mask-composite:add}
@@ -673,6 +673,12 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .emblem{min-height:150px}
 }
 @media (max-width:340px){.hero .ctas{grid-template-columns:1fr}}
+/* tablet: la foto della hero va a tutta larghezza, in formato orizzontale */
+@media (min-width:641px) and (max-width:1100px){
+  .hero{display:block;min-height:0;padding:var(--s-xl) 0 var(--s-2xl)}
+  .hero > .wrap{display:grid;grid-template-columns:1fr;gap:var(--s-xl)}
+  .emblem{flex:none;aspect-ratio:16/10;min-height:0;width:100%;max-width:none;margin:0}
+}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -1010,13 +1016,14 @@ document.querySelectorAll('#menu-principale a[href^="#"]').forEach(a=>a.addEvent
   const hero=svg.parentElement;
   let seed=1876;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
   const draw=()=>{
-    const w=hero.clientWidth,h=hero.clientHeight,s=innerWidth<640?44:64,cols=Math.ceil(w/s)+1,rows=Math.ceil(h/s)+1;
+    const w=hero.clientWidth,h=hero.clientHeight,s=innerWidth<640?36:52,cols=Math.ceil(w/s)+1,rows=Math.ceil(h/s)+1;
     seed=1876;let d='',dr='';
     for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){
-      const X=x*s,Y=y*s,r=s/2,flip=rnd()<.5;
-      const a=flip?`M${X+r} ${Y}A${r} ${r} 0 0 1 ${X} ${Y+r}M${X+s} ${Y+r}A${r} ${r} 0 0 0 ${X+r} ${Y+s}`
-                  :`M${X+r} ${Y}A${r} ${r} 0 0 0 ${X+s} ${Y+r}M${X} ${Y+r}A${r} ${r} 0 0 1 ${X+r} ${Y+s}`;
-      if(rnd()<.07)dr+=a;else d+=a;
+      const X=x*s,Y=y*s,flip=rnd()<.5;
+      // tessera di Truchet: il quadrato diviso dalla diagonale
+      d+=flip?`M${X} ${Y}L${X+s} ${Y+s}`:`M${X+s} ${Y}L${X} ${Y+s}`;
+      // qualche metà triangolare piena
+      if(rnd()<.06){const up=rnd()<.5;dr+=flip?(up?`M${X} ${Y}L${X+s} ${Y}L${X+s} ${Y+s}Z`:`M${X} ${Y}L${X} ${Y+s}L${X+s} ${Y+s}Z`):(up?`M${X} ${Y}L${X+s} ${Y}L${X} ${Y+s}Z`:`M${X+s} ${Y}L${X+s} ${Y+s}L${X} ${Y+s}Z`)}
     }
     svg.setAttribute('viewBox',`0 0 ${w} ${h}`);
     svg.innerHTML=`<path d="${d}"/><path class="r" d="${dr}"/>`;
