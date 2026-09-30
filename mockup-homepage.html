@@ -637,15 +637,17 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .way{background:#A93E5E;border-color:rgba(255,255,255,.28)}
 .way:hover{background:#9C3656}
 @media (max-width:900px){.support::before{left:-220px;bottom:-320px}.support::after{right:-140px;top:-170px}}
-/* ===== hero: tessere di Truchet =====
-   la tessera originale di Sébastien Truchet (1704): un quadrato diviso dalla diagonale,
-   orientata in un verso o nell’altro. Le diagonali formano un intreccio di linee spezzate;
-   alcune metà triangolari sono colorate. Un mosaico nato da una regola sola */
+/* ===== hero: trama di punti e cerchi =====
+   griglia regolare di punti; qua e là anelli e cerchi pieni, gli stessi
+   che decorano le card delle scuole e la fascia Sostienici, e i pallini
+   nei colori delle scuole. Una geometria sola per tutto il sito */
 .truchet{position:absolute;inset:0;width:100%;height:100%;max-width:none;z-index:0;pointer-events:none;
   -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 38%,#000 62%),linear-gradient(180deg,#000 78%,transparent 100%);-webkit-mask-composite:source-in;
   mask-image:linear-gradient(90deg,transparent 0%,transparent 38%,#000 62%),linear-gradient(180deg,#000 78%,transparent 100%);mask-composite:intersect}
-.truchet path{fill:none;stroke:var(--azzurro);stroke-width:1.2;opacity:.3;stroke-linecap:round}
-.truchet path.r{fill:var(--rosa);stroke:none;opacity:.14}
+.truchet .pt{fill:var(--azzurro);opacity:.35}
+.truchet .ring{fill:none;stroke:var(--azzurro);stroke-width:1.2;opacity:.35}
+.truchet .soft{fill:var(--rosa);opacity:.12}
+.truchet .dot{opacity:.75}
 .hero > .wrap{position:relative;z-index:1}
 @media (max-width:1100px){
   .truchet{-webkit-mask-image:linear-gradient(180deg,transparent 0%,transparent 42%,#000 66%,#000 86%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,transparent 42%,#000 66%,#000 86%,transparent 100%);-webkit-mask-composite:source-over;mask-composite:add}
@@ -1010,23 +1012,26 @@ addEventListener('keydown',e=>{if(e.key==='Escape'&&hd.classList.contains('nav-o
 document.querySelectorAll('a[aria-disabled=true]').forEach(a=>a.addEventListener('keydown',e=>{if(e.key==='Enter')e.preventDefault()}));
 // il menu mobile si chiude quando si sceglie una voce
 document.querySelectorAll('#menu-principale a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{if(hd.classList.contains('nav-open'))setMenu(false)}));
-// tessere di Truchet nella hero (disposizione fissa, generata da un seme)
+// trama geometrica della hero (disposizione fissa, generata da un seme)
 (function(){
   const svg=document.querySelector('.truchet');if(!svg)return;
   const hero=svg.parentElement;
   let seed=1876;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
   const draw=()=>{
     const w=hero.clientWidth,h=hero.clientHeight,s=innerWidth<640?36:52,cols=Math.ceil(w/s)+1,rows=Math.ceil(h/s)+1;
-    seed=1876;let d='',dr='';
+    seed=1876;let out='';const col=['var(--nido)','var(--infanzia)','var(--primaria)','var(--secondaria)','var(--liceo)'];
+    // griglia regolare di punti; qua e là anelli e cerchi pieni,
+    // la stessa coppia anello + cerchio che decora le card delle scuole
     for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){
-      const X=x*s,Y=y*s,flip=rnd()<.5;
-      // tessera di Truchet: il quadrato diviso dalla diagonale
-      d+=flip?`M${X} ${Y}L${X+s} ${Y+s}`:`M${X+s} ${Y}L${X} ${Y+s}`;
-      // qualche metà triangolare piena
-      if(rnd()<.06){const up=rnd()<.5;dr+=flip?(up?`M${X} ${Y}L${X+s} ${Y}L${X+s} ${Y+s}Z`:`M${X} ${Y}L${X} ${Y+s}L${X+s} ${Y+s}Z`):(up?`M${X} ${Y}L${X+s} ${Y}L${X} ${Y+s}Z`:`M${X+s} ${Y}L${X+s} ${Y+s}L${X} ${Y+s}Z`)}
+      const cx=x*s+s/2,cy=y*s+s/2,k=rnd();
+      if(k<.08)out+=`<circle class="ring" cx="${cx}" cy="${cy}" r="${s*.34}"/>`;
+      else if(k<.12)out+=`<circle class="ring" cx="${cx}" cy="${cy}" r="${s*.34}"/><circle class="soft" cx="${cx+s*.16}" cy="${cy+s*.16}" r="${s*.22}"/>`;
+      else if(k<.15)out+=`<circle class="soft" cx="${cx}" cy="${cy}" r="${s*.26}"/>`;
+      else if(k<.18)out+=`<circle class="dot" cx="${cx}" cy="${cy}" r="${s*.08}" style="fill:${col[Math.floor(rnd()*col.length)]}"/>`;
+      else out+=`<circle class="pt" cx="${cx}" cy="${cy}" r="1.6"/>`;
     }
     svg.setAttribute('viewBox',`0 0 ${w} ${h}`);
-    svg.innerHTML=`<path d="${d}"/><path class="r" d="${dr}"/>`;
+    svg.innerHTML=out;
   };
   draw();let t;addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(draw,150)});
 })();
