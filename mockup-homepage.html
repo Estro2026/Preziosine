@@ -556,6 +556,31 @@ h1,h2,h3,p,li,a,span,b{overflow-wrap:break-word}
 .finder{padding-bottom:var(--sec)}
 #campus{padding-top:0}
 @media (min-width:1101px) and (min-height:860px){#campus{padding-top:0;align-items:flex-start}}
+/* ===== campus: foto grandi, card orizzontali su desktop ===== */
+.campus .img{height:300px}
+@media (min-width:1101px){
+  .campus .img{height:clamp(270px,calc(100vh - 750px),420px);height:clamp(270px,calc(100svh - 750px),420px)}
+  .campus .body{padding:var(--s-md) var(--s-lg) var(--s-lg);gap:10px}
+  .campus .body > p:not([style]){font-size:16px;line-height:1.5}
+  .campus .facts{padding-top:12px}
+}
+/* spazio uguale sopra e sotto: 112 da "Trova la scuola giusta" e 112 fino alla fascia di Una Musica per Tutti */
+#campus{padding-bottom:var(--sec)}
+@media (min-width:1101px) and (min-height:860px){
+  #campus{display:flex;align-items:stretch;padding-top:0;padding-bottom:var(--sec);min-height:calc(100vh - 86px);min-height:calc(100svh - 86px)}
+  #campus > .wrap{display:flex;flex-direction:column}
+  #campus .campus-grid{flex:1}
+}
+@media (max-width:900px){.campus .img{height:260px}}
+
+/* ===== hero: forme geometriche morbide di sfondo ===== */
+.hero-shapes{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.hero-shapes i{position:absolute;display:block}
+.hero-shapes .s1{width:min(46vw,640px);aspect-ratio:1;border-radius:50%;background:var(--azzurro-soft);right:-8vw;top:-14%}
+.hero-shapes .s2{width:min(18vw,230px);aspect-ratio:1;border-radius:36px;background:var(--rosa-soft);left:-60px;bottom:6%;transform:rotate(18deg)}
+.hero-shapes .s3{width:0;height:0;border-left:70px solid transparent;border-right:70px solid transparent;border-bottom:120px solid rgba(0,150,180,.16);left:44%;top:8%;transform:rotate(-14deg);opacity:.9}
+.hero > .wrap{position:relative;z-index:1}
+@media (max-width:1100px){.hero-shapes .s1{width:80vw;right:-30vw;top:30%}.hero-shapes .s3{left:auto;right:6%;top:auto;bottom:3%;border-left-width:44px;border-right-width:44px;border-bottom-width:76px}.hero-shapes .s4{display:none}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -608,6 +633,7 @@ h1,h2,h3,p,li,a,span,b{overflow-wrap:break-word}
 <main id="main">
   <!-- HERO -->
   <section class="hero" aria-labelledby="t-hero">
+    <div class="hero-shapes" aria-hidden="true"><i class="s1"></i><i class="s2"></i><i class="s3"></i></div>
     <div class="wrap">
       <div class="reveal">
         <span class="script">Le Preziosine, scuole che educano, accompagnano, fanno crescere!</span>
