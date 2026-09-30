@@ -467,6 +467,9 @@ footer address{font-style:normal}
 .step small,.iscr > div > p,.support p,.way small,.musica p{opacity:1}
 .way{background:rgba(80,10,35,.16);border-color:rgba(255,255,255,.35)}
 .way:hover{background:rgba(80,10,35,.26)}
+/* footer: frase in evidenza al posto del logo */
+footer .f-claim{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(26px,2.4vw,34px);line-height:1.2;letter-spacing:-.01em;max-width:340px;opacity:1;text-wrap:balance}
+footer .f-claim em{display:block;font-style:italic;color:#FFB8C7}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -745,8 +748,7 @@ footer address{font-style:normal}
   <div class="wrap">
     <div class="f-grid">
       <div class="f-logo">
-        <a href="#" class="logo"><svg class="drop" viewBox="0 0 48 56" aria-hidden="true"><path d="M24 2C24 2 4 24 4 36a20 20 0 0 0 40 0C44 24 24 2 24 2Z" fill="var(--rosa)"/><path d="M13 34c1-5 4-10 8-15" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/></svg><span class="logo-text"><b>Preziosine</b><span>Scuole · Milano e Monza</span></span></a>
-        <p style="margin-top:18px;max-width:320px">Scuole a Milano e Monza, dal Nido al Liceo Artistico.</p>
+        <p class="f-claim">Scuole a Milano e Monza, <em>dal Nido al Liceo Artistico.</em></p>
       </div>
       <div class="f-campus" style="--c:var(--milano)">
         <h2 class="f-h">Campus Milano</h2>
