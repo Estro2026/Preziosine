@@ -667,27 +667,6 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .hero > .wrap{display:grid;grid-template-columns:1fr;gap:var(--s-xl)}
   .emblem{flex:none;aspect-ratio:16/10;min-height:0;width:100%;max-width:none;margin:0}
 }
-/* ===== hero: geometria dal linguaggio Preziosine =====
-   dalle forme morbide di preziosine.it (sassi pieni azzurro e petrolio)
-   e dal tratto a mano dei simboli dei campus: grandi campiture organiche
-   dietro la foto e una sola linea disegnata a mano */
-.emblem{isolation:isolate}
-.peb,.hand{position:absolute;z-index:-1;pointer-events:none;overflow:visible;max-width:none}
-.peb path{stroke:none}
-.peb-1{width:78%;right:-20%;top:-16%}
-.peb-1 path{fill:#CFE6EC}
-.peb-2{width:30%;left:-11%;bottom:-9%}
-.peb-2 path{fill:var(--azzurro-dark)}
-.peb-3{width:15%;left:-17%;top:22%}
-.peb-3 path{fill:var(--rosa-soft)}
-.hand{width:46%;right:-12%;bottom:-12%}
-.hand path{fill:none;stroke:var(--rosa);stroke-width:1.6;stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:.9}
-@media (max-width:900px),(max-width:1100px) and (orientation:portrait){
-  .peb-1{width:60%;right:-8%;top:-10%}
-  .peb-2{width:24%;left:-4%;bottom:-7%}
-  .peb-3{display:none}
-  .hand{width:38%;right:-5%;bottom:-9%}
-}
 /* ===== schermi orizzontali stretti (anche con lo zoom del browser):
    testo e foto restano affiancati e la hero occupa tutta l'altezza ===== */
 @media (min-width:901px) and (max-width:1100px) and (orientation:landscape){
@@ -734,6 +713,29 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .topbar .wrap{justify-content:stretch}
   .topbar .quick{width:100%;gap:var(--s-md)}
   .topbar .quick a:nth-child(3){margin-left:auto}
+}
+/* ===== hero: composizione di cerchio, quadrato e triangolo =====
+   le tre figure elementari usate separatamente, con pieni e contorni,
+   sovrapposte in una composizione intorno alla foto */
+.emblem{isolation:isolate}
+.geo{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.geo i{position:absolute;display:block}
+.g-circle{width:64%;aspect-ratio:1;border-radius:50%;background:var(--azzurro-soft);right:-20%;top:-16%}
+.g-ring{width:86%;aspect-ratio:1;border-radius:50%;border:1.5px solid rgba(0,150,180,.45);right:-31%;top:-27%}
+.g-half{width:24%;aspect-ratio:2/1;border-radius:999px 999px 0 0;background:var(--rosa-soft);left:16%;top:-8.5%}
+.g-tri-line{width:30%;aspect-ratio:1;left:-21%;top:6%;background:rgba(0,150,180,.16);clip-path:polygon(50% 0,100% 86.6%,0 86.6%);transform:rotate(-12deg)}
+.g-tri{width:17%;aspect-ratio:1;left:-10%;top:20%;background:var(--rosa);clip-path:polygon(50% 0,100% 86.6%,0 86.6%);transform:rotate(-12deg);opacity:.9}
+.g-square{width:24%;aspect-ratio:1;background:var(--azzurro-dark);left:-9%;bottom:-9%}
+.g-dot{width:5%;aspect-ratio:1;border-radius:50%;background:var(--rosa);left:20%;bottom:-11%}
+.g-diamond{width:15%;aspect-ratio:1;border:1.5px solid var(--rosa);right:-6%;bottom:-6%;transform:rotate(45deg)}
+@media (max-width:900px),(max-width:1100px) and (orientation:portrait){
+  .g-circle{width:56%;right:-10%;top:-10%}
+  .g-ring{width:62%;right:-12%;top:-11%}
+  .g-tri-line{left:-8%;top:8%;width:24%}
+  .g-tri{left:-3%;top:18%;width:13%}
+  .g-square{width:20%;left:-4%;bottom:-6%}
+  .g-diamond{right:-3%;bottom:-4%;width:12%}
+  .g-half{top:-6%}
 }
 </style>
 <script>document.documentElement.classList.add('js')</script>
@@ -806,7 +808,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
         </div>
       </div>
       <div class="emblem">
-        <svg class="peb peb-1" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M52 4C78 3 97 18 96 45C95 72 74 97 46 96C20 95 3 77 5 50C7 24 26 5 52 4Z"/></svg><svg class="peb peb-2" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M40 6C66 0 94 14 95 40C96 68 70 94 44 95C18 96 2 76 4 50C6 28 18 11 40 6Z"/></svg><svg class="peb peb-3" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M55 8C80 12 95 34 90 58C85 84 58 96 34 90C12 84 3 62 9 40C15 18 32 5 55 8Z"/></svg><svg class="hand" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M9 54C6 27 31 7 57 9C83 11 97 35 92 61C87 85 59 98 35 92C17 87 7 71 12 57"/></svg>
+        <span class="geo" aria-hidden="true"><i class="g-circle"></i><i class="g-ring"></i><i class="g-square"></i><i class="g-diamond"></i><i class="g-tri"></i><i class="g-tri-line"></i><i class="g-dot"></i><i class="g-half"></i></span>
         <div class="sq"><img src="img/campus-monza.jpg" alt="Il cortile alberato del Campus Monza visto dall’alto" width="1920" height="1080" fetchpriority="high" decoding="async"></div>
       </div>
     </div>
