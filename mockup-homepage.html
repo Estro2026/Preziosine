@@ -729,6 +729,12 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .emblem{max-width:min(560px,calc(100svh - 150px))}
   section[id],.band{scroll-margin-top:68px}
 }
+/* tablet: le quattro voci della barra blu, due a sinistra e due a destra */
+@media (min-width:641px) and (max-width:900px){
+  .topbar .wrap{justify-content:stretch}
+  .topbar .quick{width:100%;gap:var(--s-md)}
+  .topbar .quick a:nth-child(3){margin-left:auto}
+}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
