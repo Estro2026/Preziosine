@@ -470,16 +470,93 @@ footer address{font-style:normal}
 /* footer: frase in evidenza al posto del logo */
 footer .f-claim{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(26px,2.4vw,34px);line-height:1.2;letter-spacing:-.01em;max-width:340px;opacity:1;text-wrap:balance}
 footer .f-claim em{display:block;font-style:italic;color:#FFB8C7}
+/* ===== logo provvisorio ===== */
+.logo-ph{border:1.5px dashed rgba(192,71,106,.55);border-radius:16px;padding:6px 16px 6px 8px;gap:10px;background:repeating-linear-gradient(135deg,rgba(217,96,122,.06) 0 6px,transparent 6px 12px)}
+.logo-ph .drop{width:32px;height:38px}
+.logo-ph .logo-text b{font-size:22px}
+.logo-ph .logo-text span{font-size:10.5px;letter-spacing:.16em;color:var(--rosa-ui);margin-top:4px}
+
+/* ===== hero: linee geometriche di sfondo ===== */
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero-bg *{fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round}
+.hero-bg .l-az *{stroke:var(--azzurro);stroke-width:1.2;opacity:.22}
+.hero-bg .l-rs *{stroke:var(--rosa);stroke-width:1.2;opacity:.3}
+.hero-bg .l-dot *{stroke:var(--azzurro);stroke-width:1.2;stroke-dasharray:2 10;opacity:.35}
+.hero > .wrap{position:relative;z-index:1}
+
+/* ===== campus: sezione a tutta altezza, simboli ufficiali ===== */
+#campus{padding-top:var(--s-xl);padding-bottom:var(--s-xl)}
+@media (min-width:1101px) and (min-height:860px){#campus{padding-top:var(--s-lg);padding-bottom:var(--s-lg);min-height:calc(100vh - 86px);min-height:calc(100svh - 86px);display:flex;align-items:center}}
+#campus > .wrap{width:100%}
+.finder{padding-bottom:0}
+#campus .sec-head{margin-bottom:var(--s-lg)}
+.campus .img{height:clamp(150px,calc(100vh - 740px),380px);height:clamp(150px,calc(100svh - 740px),380px)}
+.campus .body{padding:var(--s-md) var(--s-lg) var(--s-lg);gap:12px}
+.campus h3{font-size:clamp(26px,2.4vw,32px)}
+.campus .facts{padding-top:var(--s-sm)}
+.campus .facts b{font-size:clamp(24px,2vw,30px)}
+.campus .img .syms{position:absolute;right:18px;top:18px;z-index:1;display:flex;gap:8px}
+.campus .img .syms img{width:56px;height:56px;background:#fff;border-radius:14px;padding:6px;box-shadow:0 8px 20px -10px rgba(30,42,68,.4)}
+.campus .img::after{background:linear-gradient(180deg,transparent 40%,rgba(30,42,68,.55))}
+@supports (background:color-mix(in srgb,red 50%,transparent)){.campus .img::after{background:linear-gradient(180deg,transparent 40%,color-mix(in srgb,var(--c) 70%,transparent))}}
+
+/* ===== responsive: tutti i breakpoint ===== */
+img,svg{max-width:100%}
+h1,h2,h3,p,li,a,span,b{overflow-wrap:break-word}
+@media (max-width:1100px){
+  .hero .wrap{grid-template-columns:1fr;gap:var(--s-xl)}
+  .emblem{max-width:560px;justify-self:center}
+  .campus-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+  #campus{min-height:0;display:block}
+  .campus-grid{grid-template-columns:1fr}
+  .campus .img{height:240px}
+  .musica .pics{min-height:320px}
+  .iscr .iscr-links a{white-space:normal}
+  .f-grid{grid-template-columns:1fr 1fr}
+  .f-grid > :first-child{grid-column:1 / -1}
+}
+@media (max-width:640px){
+  .paths{grid-template-columns:1fr 1fr;gap:12px}
+  .path{min-height:180px;padding:var(--s-sm)}
+  .path h3{font-size:22px}
+  .finder-head,.news-head{flex-direction:column;align-items:flex-start}
+  .toggle{width:100%}.toggle button{flex:1;padding:11px 8px}
+  .hero .ctas .btn{width:100%;justify-content:center}
+  .stats{gap:var(--s-md)}
+  .campus .body,.why,.extra{padding:var(--s-md)}
+  .campus .img .syms img{width:46px;height:46px}
+  .campus .img span{font-size:40px}
+  .facts{gap:var(--s-md)}
+  .openday,.steps{max-width:none}
+  .f-grid{grid-template-columns:1fr}
+  .f-bottom{flex-direction:column}
+  .tabs{gap:6px}.tabs button{padding:9px 13px;font-size:14px}
+}
+@media (max-width:380px){
+  .path h3{font-size:20px}
+  .path{min-height:160px}
+  .logo-ph{padding:5px 10px 5px 6px}
+  .logo-ph .logo-text b{font-size:19px}
+  .topbar .quick{gap:12px;font-size:13px}
+}
+@media (max-width:340px){
+  .paths{grid-template-columns:1fr}
+  .path{min-height:130px}
+}
+/* zoom del browser e schermi bassi */
+@media (max-height:620px) and (min-width:901px){
+  .hero{min-height:0}
+  #campus{min-height:0}
+}
+@media (max-width:540px){.logo-ph .logo-text span{display:block}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <a class="skip" href="#main">Vai al contenuto</a>
 
-<!-- simbolo riutilizzabile -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="mark" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4.5h42a5 5 0 0 1 5 5v41a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-41a5 5 0 0 1 5-5Z"/><circle cx="30" cy="32" r="21"/><path d="M30 11 48.2 42.5H11.8Z"/></symbol>
-</svg>
 
 <div class="topbar">
   <div class="wrap">
@@ -497,10 +574,10 @@ footer .f-claim em{display:block;font-style:italic;color:#FFB8C7}
 
 <header class="main">
   <div class="wrap">
-    <a href="#" class="logo" aria-label="Scuole Preziosine – Home">
+    <a href="#" class="logo logo-ph" aria-label="Scuole Preziosine, home. Logo provvisorio">
       <svg class="drop" viewBox="0 0 48 56" aria-hidden="true"><path d="M24 2C24 2 4 24 4 36a20 20 0 0 0 40 0C44 24 24 2 24 2Z" fill="var(--rosa)"/><path d="M13 34c1-5 4-10 8-15" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/></svg>
       
-      <span class="logo-text"><b>Preziosine</b><span>Scuole · Milano e Monza</span></span>
+      <span class="logo-text"><b>Preziosine</b><span>Logo provvisorio</span></span>
     </a>
     <nav class="primary" id="menu-principale" aria-label="Menu principale">
       <ul>
@@ -526,6 +603,11 @@ footer .f-claim em{display:block;font-style:italic;color:#FFB8C7}
 <main id="main">
   <!-- HERO -->
   <section class="hero" aria-labelledby="t-hero">
+    <svg class="hero-bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <g class="l-az"><circle cx="1180" cy="170" r="260"/><circle cx="1180" cy="170" r="330"/><path d="M-40 760 L520 200"/><path d="M-40 840 L600 200"/><path d="M-40 920 L680 200"/></g>
+      <g class="l-rs"><path d="M90 120 h140 M160 50 v140"/><circle cx="330" cy="800" r="120"/><path d="M820 860 l90 -156 l90 156 Z"/></g>
+      <g class="l-dot"><circle cx="1180" cy="170" r="400"/></g>
+    </svg>
     <div class="wrap">
       <div class="reveal">
         <span class="script">Le Preziosine, scuole che educano, accompagnano, fanno crescere!</span>
@@ -543,7 +625,6 @@ footer .f-claim em{display:block;font-style:italic;color:#FFB8C7}
       </div>
       <div class="emblem">
         <div class="sq"><img src="img/campus-monza.jpg" alt="Il cortile alberato del Campus Monza visto dall’alto" width="1920" height="1080" fetchpriority="high" decoding="async"></div>
-        <svg class="lines" viewBox="0 0 60 60" aria-hidden="true" focusable="false"><circle cx="30" cy="31" r="21.5" pathLength="1"/><path class="tri" d="M30 9.5 48.6 41.7H11.4Z" pathLength="1"/></svg>
       </div>
     </div>
   </section>
@@ -582,7 +663,7 @@ footer .f-claim em{display:block;font-style:italic;color:#FFB8C7}
       </div>
       <div class="campus-grid stagger">
         <article class="campus mi">
-          <div class="img"><img src="img/campus-milano.jpg" alt="Il Campus Milano visto dall’alto" width="1920" height="1080" loading="lazy" decoding="async"><span>Milano</span><b class="sym"><svg><use href="#mark"/></svg></b></div>
+          <div class="img"><img src="img/campus-milano.jpg" alt="Il Campus Milano visto dall’alto" width="1920" height="1080" loading="lazy" decoding="async"><span>Milano</span><span class="syms"><img src="img/simbolo_ICP_MI_fondo_bianco.png" alt="Simbolo dell’Istituto Comprensivo Preziosissimo Sangue di Milano" width="73" height="73"></span></div>
           <div class="body">
             <h3>Campus Milano</h3>
             <p>Istituto Comprensivo con Nido, Primavera, Scuola dell’Infanzia, Primaria e Secondaria di I grado. Il campus ha un’area verde di 6.900 mq.</p>
@@ -593,7 +674,7 @@ footer .f-claim em{display:block;font-style:italic;color:#FFB8C7}
           </div>
         </article>
         <article class="campus mb">
-          <div class="img"><img src="img/scuole-monza-preziosine-2.jpg" alt="Il cortile ad anfiteatro del Campus Monza" width="1006" height="742" loading="lazy" decoding="async"><span>Monza</span><b class="sym"><svg><use href="#mark"/></svg></b></div>
+          <div class="img"><img src="img/scuole-monza-preziosine-2.jpg" alt="Il cortile ad anfiteatro del Campus Monza" width="1006" height="742" loading="lazy" decoding="async"><span>Monza</span><span class="syms"><img src="img/simbolo_ICP_MB_fondo_bianco.png" alt="Simbolo dell’Istituto Comprensivo Preziosissimo Sangue di Monza" width="73" height="73"><img src="img/simbolo_liceo_art_fondo_bianco.png" alt="Simbolo del Liceo Artistico Preziosissimo Sangue" width="73" height="73"></span></div>
           <div class="body">
             <h3>Campus Monza</h3>
             <p>Istituto Comprensivo con Scuola dell’Infanzia, Primaria, Secondaria di I grado e il Liceo Artistico.</p>
