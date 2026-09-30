@@ -9,6 +9,7 @@
 <!-- dominio ipotizzato nel brief: da confermare -->
 <link rel="canonical" href="https://scuole.preziosine.it/">
 <meta name="theme-color" content="#FBF7F3">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%23C0476A'/%3E%3Ctext x='20' y='28' font-family='Georgia,serif' font-size='24' font-weight='700' text-anchor='middle' fill='%23fff'%3EP%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
@@ -574,22 +575,67 @@ h1,h2,h3,p,li,a,span,b{overflow-wrap:break-word}
 @media (max-width:900px){.campus .img{height:260px}}
 
 .hero > .wrap{position:relative;z-index:1}
-/* ===== hero: geometria legata alla foto =====
-   una cornice sfalsata che dà profondità all'immagine e,
-   sotto, sei cerchi che crescono con i colori delle scuole: il percorso dal Nido al Liceo */
-.emblem{margin-bottom:56px}
-.emblem .frame{position:absolute;inset:0;transform:translate(28px,28px);border-radius:44px;background:var(--azzurro-soft);z-index:-1}
-.emblem .frame::after{content:"";position:absolute;inset:-14px;border-radius:52px;border:1.5px solid rgba(0,150,180,.35);transform:translate(14px,14px)}
-.emblem .steps-dots{position:absolute;left:0;bottom:-52px;display:flex;align-items:flex-end;gap:10px}
-.emblem .steps-dots i{display:block;border-radius:50%;background:var(--d)}
-.emblem .steps-dots i:nth-child(1){width:10px;height:10px}
-.emblem .steps-dots i:nth-child(2){width:14px;height:14px}
-.emblem .steps-dots i:nth-child(3){width:18px;height:18px}
-.emblem .steps-dots i:nth-child(4){width:22px;height:22px}
-.emblem .steps-dots i:nth-child(5){width:26px;height:26px}
-.emblem .steps-dots i:nth-child(6){width:30px;height:30px}
+/* ===== hero: rettangolo aureo =====
+   la foto è il quadrato maggiore di un rettangolo aureo (1 : φ).
+   accanto: la suddivisione in quadrati, la spirale aurea e le due diagonali
+   che si incontrano nel suo polo. un segno di crescita armonica */
 .emblem{isolation:isolate}
-@media (max-width:640px){.emblem .frame{transform:translate(14px,14px)}.emblem .frame::after{display:none}.emblem{margin-right:14px}}
+.golden{position:absolute;z-index:-1;overflow:visible;pointer-events:none;max-width:none;max-height:none}
+.golden *{vector-effect:non-scaling-stroke;fill:none}
+.golden .c{stroke:var(--azzurro);stroke-width:1;opacity:.32}
+.golden .d{stroke:var(--azzurro);stroke-width:1;stroke-dasharray:3 6;opacity:.38}
+.golden .s{stroke:var(--rosa);stroke-width:1.6;opacity:.7}
+.golden .p{fill:var(--rosa);stroke:none}
+.golden .t{fill:var(--azzurro-ui);stroke:none;font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:3.4px;letter-spacing:.02em;opacity:.8}
+.golden-h{right:0;top:0;height:100%;width:161.8%}
+.golden-v{display:none;left:0;bottom:0;width:100%;height:161.8%}
+/* ===== CTA Sostienici sempre raggiungibile ===== */
+.topbar .tb-sost{font-weight:700;color:#FFD3DC}
+.m-only{display:none}
+@media (max-width:1440px){.topbar .tb-sost{display:inline}}
+@media (min-width:1441px){.topbar .tb-sost{display:none}}
+
+/* ===== esperienza mobile ===== */
+html{background:var(--crema)}
+@media (max-width:1260px){
+  header.main.nav-open .m-only{display:block;border-top:1px solid var(--line);margin-top:var(--s-xs);padding-top:var(--s-sm)}
+  header.main.nav-open .m-links{display:flex;flex-wrap:wrap;gap:var(--s-xs) var(--s-md);font-size:15px}
+  header.main.nav-open .m-links a{padding:8px 0;display:inline-block}
+  header.main.nav-open .m-cta{display:grid;gap:var(--s-xs)}
+  header.main.nav-open nav.primary .m-cta .btn{display:flex;justify-content:center;width:100%;padding:14px 22px;font-size:16px}
+  header.main.nav-open nav.primary .m-cta .btn::before{display:none}
+  header.main.nav-open nav.primary .m-links a{font-size:15px;padding:8px 0}
+  header.main.nav-open nav.primary .m-links a::before{display:none}
+  header.main.nav-open nav.primary > ul > li > a{padding:12px 4px;font-size:17px}
+}
+@media (max-width:1100px){
+  /* hero: su tablet e telefono l'immagine sta dentro la stessa fascia del testo */
+  .hero{min-height:0;padding:var(--s-lg) 0 var(--s-2xl)}
+  .emblem::before{content:"";position:absolute;left:-100vw;right:-100vw;top:45%;bottom:calc(-1 * var(--s-2xl));background:var(--azzurro-soft);z-index:-2}
+  .hero .wrap{grid-template-columns:1fr;gap:var(--s-xl)}
+  .emblem{max-width:520px;width:100%;justify-self:center;margin:0 auto;aspect-ratio:1/1}
+  .golden-h{display:none}
+  .golden-v{display:none}
+}
+@media (max-width:640px){
+  header.main .wrap{height:68px}
+  .topbar{display:none}
+  .hero{padding-top:var(--s-md)}
+  .hero .script{font-size:23px}
+  .hero h1{font-size:clamp(34px,9.6vw,44px)}
+  .hero p.lead{font-size:16px}
+  .hero .ctas{display:grid;grid-template-columns:1fr;gap:var(--s-xs)}
+  /* i tre numeri restano sempre su una riga */
+  .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-sm);margin-top:var(--s-md)}
+  .stats b{font-size:clamp(26px,8vw,34px);white-space:nowrap}
+  .stats span{font-size:12px;line-height:1.35;display:block}
+  .emblem .sq{border-radius:28px}
+  .golden .t{font-size:5px}
+  section[id],.band{scroll-margin-top:68px}
+}
+@media (max-width:360px){.stats b{font-size:24px}.hero h1{font-size:32px}}
+/* ancore: il titolo non finisce sotto l'header fisso */
+section[id],.band{scroll-margin-top:90px}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -607,6 +653,7 @@ h1,h2,h3,p,li,a,span,b{overflow-wrap:break-word}
       <a href="#">Documenti utili</a>
       <a href="#">Trasparenza</a>
       <a href="#newsletter">Newsletter</a>
+      <a href="#sostienici" class="tb-sost">Sostienici</a>
     </div>
   </div>
 </div>
@@ -629,6 +676,8 @@ h1,h2,h3,p,li,a,span,b{overflow-wrap:break-word}
         <li><a href="#">Una Musica per Tutti</a></li>
         <li class="has-sub"><a href="#">Vivere la scuola</a>
           <div class="sub"><a href="#">Perché sceglierci</a><a href="#">Offerta extrascolastica</a><a href="#">Documenti utili</a><a href="#">News, eventi, seguici</a></div></li>
+        <li class="m-only m-links"><a href="#">Documenti utili</a><a href="#">Trasparenza</a><a href="#newsletter">Newsletter</a></li>
+        <li class="m-only m-cta"><a href="#iscrizioni" class="btn btn-rosa">Iscrizioni e Open Day</a><a href="#sostienici" class="btn btn-ghost">Sostienici</a></li>
       </ul>
     </nav>
     <div class="header-cta">
@@ -658,8 +707,8 @@ h1,h2,h3,p,li,a,span,b{overflow-wrap:break-word}
         </div>
       </div>
       <div class="emblem">
-        <span class="frame" aria-hidden="true"></span>
-        <span class="steps-dots" aria-hidden="true"><i style="--d:var(--nido)"></i><i style="--d:var(--nido)"></i><i style="--d:var(--infanzia)"></i><i style="--d:var(--primaria)"></i><i style="--d:var(--secondaria)"></i><i style="--d:var(--liceo)"></i></span>
+        <svg class="golden golden-h" viewBox="0 0 161.8 100" aria-hidden="true" focusable="false"><g><path class="c" d="M0 0H161.8V100H0Z M61.8 0V100 M0 61.8H61.8 M38.2 61.8V100 M38.2 76.4H61.8 M47 61.8V76.4 M38.2 70.6H47"/><path class="d" d="M0 100 161.8 0 M0 0 61.8 100"/><path class="s" d="M161.8 100A100 100 0 0 0 61.8 0A61.8 61.8 0 0 0 0 61.8A38.2 38.2 0 0 0 38.2 100A23.6 23.6 0 0 0 61.8 76.4A14.6 14.6 0 0 0 47 61.8A8.8 8.8 0 0 0 38.2 70.6"/><circle class="p" cx="45.1" cy="72.3" r="1.1"/></g><text class="t" x="2.5" y="5.5">φ = 1,618…</text></svg>
+        <svg class="golden golden-v" viewBox="0 0 100 161.8" aria-hidden="true" focusable="false"><g transform="matrix(0 1 1 0 0 0)"><path class="c" d="M0 0H161.8V100H0Z M61.8 0V100 M0 61.8H61.8 M38.2 61.8V100 M38.2 76.4H61.8 M47 61.8V76.4 M38.2 70.6H47"/><path class="d" d="M0 100 161.8 0 M0 0 61.8 100"/><path class="s" d="M161.8 100A100 100 0 0 0 61.8 0A61.8 61.8 0 0 0 0 61.8A38.2 38.2 0 0 0 38.2 100A23.6 23.6 0 0 0 61.8 76.4A14.6 14.6 0 0 0 47 61.8A8.8 8.8 0 0 0 38.2 70.6"/><circle class="p" cx="45.1" cy="72.3" r="1.1"/></g><text class="t" x="2.5" y="5.5">φ = 1,618…</text></svg>
         <div class="sq"><img src="img/campus-monza.jpg" alt="Il cortile alberato del Campus Monza visto dall’alto" width="1920" height="1080" fetchpriority="high" decoding="async"></div>
       </div>
     </div>
@@ -915,6 +964,8 @@ burger.addEventListener('click',()=>{const open=hd.classList.toggle('nav-open');
 addEventListener('keydown',e=>{if(e.key==='Escape'&&hd.classList.contains('nav-open')){hd.classList.remove('nav-open');burger.setAttribute('aria-expanded','false');burger.focus()}});
 // link segnaposto: attivabili anche da tastiera, senza navigare
 document.querySelectorAll('a[aria-disabled=true]').forEach(a=>a.addEventListener('keydown',e=>{if(e.key==='Enter')e.preventDefault()}));
+// il menu mobile si chiude quando si sceglie una voce
+document.querySelectorAll('#menu-principale a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{if(hd.classList.contains('nav-open')){hd.classList.remove('nav-open');burger.setAttribute('aria-expanded','false')}}));
 // comparsa allo scroll
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
