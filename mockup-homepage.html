@@ -90,7 +90,7 @@ a:not([href]){cursor:pointer}
 
 /* top bar + header */
 .topbar{background:var(--azzurro-dark);color:#fff;font-size:14px}
-.topbar .wrap,header.main .wrap{max-width:1560px;padding-left:40px;padding-right:40px}
+.topbar .wrap,header.main .wrap,footer > .wrap{max-width:1560px;padding-left:40px;padding-right:40px}
 .topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
 .topbar .contacts{display:flex;gap:22px;flex-wrap:wrap;opacity:.9}
 .topbar .quick{display:flex;gap:18px}
@@ -416,7 +416,7 @@ footer{margin-top:var(--sec);padding-top:var(--s-2xl)}
 .f-bottom{margin-top:var(--s-2xl);padding-top:var(--s-md)}
 .campus,.path,.why,.extra,.card,.step,.way{border-radius:var(--r)}
 .openday a{border-radius:calc(var(--r) - 6px)}
-@media (max-width:900px){:root{--sec:72px}.musica .txt{padding-right:16px}.hero .wrap,.iscr,.support,.nl,.f-grid{gap:var(--s-xl)}}
+@media (max-width:900px){footer > .wrap{padding-left:16px;padding-right:16px}:root{--sec:72px}.musica .txt{padding-right:16px}.hero .wrap,.iscr,.support,.nl,.f-grid{gap:var(--s-xl)}}
 /* ===== tipografia ===== */
 h1,h2,h3{text-wrap:balance}
 p,li,small,.lead{text-wrap:pretty;hyphens:manual}
