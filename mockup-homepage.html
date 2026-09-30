@@ -696,16 +696,15 @@ html.menu-open,html.menu-open body{overflow:hidden}
 /* schermi bassi (portatili con zoom): barra blu nascosta, header più basso,
    la hero riempie esattamente lo spazio che resta */
 @media (min-width:901px) and (max-height:700px){
-  .topbar{display:none}
   header.main .wrap{height:68px}
-  .hero{min-height:calc(100vh - 68px);min-height:calc(100svh - 68px);padding:var(--s-md) 0;display:flex;align-items:center}
+  .hero{min-height:calc(100vh - 108px);min-height:calc(100svh - 108px);padding:var(--s-md) 0;display:flex;align-items:center}
   .hero > .wrap{width:100%}
   .hero h1{font-size:clamp(28px,min(4.4vw,6.6vh),56px)}
   .hero p.lead{font-size:14px;line-height:1.5;margin:8px 0 16px}
   .hero .ctas .btn{padding:10px 16px;font-size:14px}
   .hero .stats{margin-top:14px;gap:var(--s-md)}
   .hero .stats span{font-size:12px}
-  .emblem{max-width:min(560px,calc(100svh - 150px))}
+  .emblem{max-width:min(560px,calc(100svh - 190px))}
   section[id],.band{scroll-margin-top:68px}
 }
 /* tablet: le quattro voci della barra blu, due a sinistra e due a destra */
@@ -736,6 +735,15 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .g-square{width:20%;left:-4%;bottom:-6%}
   .g-diamond{right:-3%;bottom:-4%;width:12%}
   .g-half{top:-6%}
+}
+/* schermi stretti o zoomati: pulsante dell'header proporzionato */
+@media (max-width:1260px){.header-cta .btn{padding:9px 14px;font-size:13.5px}}
+@media (max-height:700px){.header-cta .btn{padding:8px 14px;font-size:13px}}
+/* Una Musica per Tutti tra 901 e 1260 px: foto più grande, stessa impaginazione del desktop */
+@media (min-width:901px) and (max-width:1260px){
+  .musica{grid-template-columns:.9fr 1.1fr}
+  .musica .txt{padding-right:var(--s-xl)}
+  .musica .pics{margin:var(--s-2xl) var(--side) var(--s-2xl) 0}
 }
 </style>
 <script>document.documentElement.classList.add('js')</script>
