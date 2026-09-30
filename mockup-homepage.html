@@ -547,7 +547,7 @@ h1,h2,h3,p,li,a,span,b{overflow-wrap:break-word}
 }
 /* zoom del browser e schermi bassi */
 @media (max-height:620px) and (min-width:901px){
-  .hero{min-height:0}
+
   #campus{min-height:0}
 }
 
@@ -638,21 +638,6 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .way{background:#A93E5E;border-color:rgba(255,255,255,.28)}
 .way:hover{background:#9C3656}
 @media (max-width:900px){.support::before{left:-220px;bottom:-320px}.support::after{right:-140px;top:-170px}}
-/* ===== hero: trama di punti e cerchi =====
-   griglia regolare di punti; qua e là anelli e cerchi pieni, gli stessi
-   che decorano le card delle scuole e la fascia Sostienici, e i pallini
-   nei colori delle scuole. Una geometria sola per tutto il sito */
-.truchet{position:absolute;inset:0;width:100%;height:100%;max-width:none;z-index:0;pointer-events:none;
-  -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 38%,#000 62%),linear-gradient(180deg,#000 78%,transparent 100%);-webkit-mask-composite:source-in;
-  mask-image:linear-gradient(90deg,transparent 0%,transparent 38%,#000 62%),linear-gradient(180deg,#000 78%,transparent 100%);mask-composite:intersect}
-.truchet .pt{fill:var(--azzurro);opacity:.35}
-.truchet .ring{fill:none;stroke:var(--azzurro);stroke-width:1.2;opacity:.35}
-.truchet .soft{fill:var(--rosa);opacity:.12}
-.truchet .dot{opacity:.75}
-.hero > .wrap{position:relative;z-index:1}
-@media (max-width:1100px){
-  .truchet{-webkit-mask-image:linear-gradient(180deg,transparent 0%,transparent 42%,#000 66%,#000 86%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,transparent 42%,#000 66%,#000 86%,transparent 100%);-webkit-mask-composite:source-over;mask-composite:add}
-}
 /* ===== hero a tutto schermo anche su tablet e telefono =====
    il testo mantiene la sua altezza, la foto occupa lo spazio che resta */
 @media (max-width:1100px){
@@ -681,6 +666,68 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .hero{display:block;min-height:0;padding:var(--s-xl) 0 var(--s-2xl)}
   .hero > .wrap{display:grid;grid-template-columns:1fr;gap:var(--s-xl)}
   .emblem{flex:none;aspect-ratio:16/10;min-height:0;width:100%;max-width:none;margin:0}
+}
+/* ===== hero: geometria dal linguaggio Preziosine =====
+   dalle forme morbide di preziosine.it (sassi pieni azzurro e petrolio)
+   e dal tratto a mano dei simboli dei campus: grandi campiture organiche
+   dietro la foto e una sola linea disegnata a mano */
+.emblem{isolation:isolate}
+.peb,.hand{position:absolute;z-index:-1;pointer-events:none;overflow:visible;max-width:none}
+.peb path{stroke:none}
+.peb-1{width:78%;right:-20%;top:-16%}
+.peb-1 path{fill:#CFE6EC}
+.peb-2{width:30%;left:-11%;bottom:-9%}
+.peb-2 path{fill:var(--azzurro-dark)}
+.peb-3{width:15%;left:-17%;top:22%}
+.peb-3 path{fill:var(--rosa-soft)}
+.hand{width:46%;right:-12%;bottom:-12%}
+.hand path{fill:none;stroke:var(--rosa);stroke-width:1.6;stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:.9}
+@media (max-width:900px),(max-width:1100px) and (orientation:portrait){
+  .peb-1{width:60%;right:-8%;top:-10%}
+  .peb-2{width:24%;left:-4%;bottom:-7%}
+  .peb-3{display:none}
+  .hand{width:38%;right:-5%;bottom:-9%}
+}
+/* ===== schermi orizzontali stretti (anche con lo zoom del browser):
+   testo e foto restano affiancati e la hero occupa tutta l'altezza ===== */
+@media (min-width:901px) and (max-width:1100px) and (orientation:landscape){
+  .hero{display:flex;align-items:center;min-height:calc(100vh - 124px);min-height:calc(100svh - 124px);padding:var(--s-lg) 0}
+  .hero > .wrap{flex:none;display:grid;grid-template-columns:1.05fr 1fr;gap:var(--s-xl);align-items:center}
+  .emblem{flex:none;aspect-ratio:1/1;min-height:0;width:100%;max-width:min(100%,calc(100svh - 230px));justify-self:end;margin:0}
+  .hero h1{font-size:clamp(34px,min(4.6vw,7vh),60px)}
+}
+/* schermi bassi: il testo si adatta all'altezza invece di sforare */
+@media (min-width:901px) and (max-height:700px){
+  .hero .script{font-size:clamp(18px,3.4vh,26px);margin-bottom:6px}
+  .hero p.lead{font-size:15px;margin:10px 0 18px}
+  .hero .stats{margin-top:18px}
+  .hero .stats b{font-size:clamp(26px,5vh,36px)}
+  .hero .btn{padding:11px 18px}
+}
+/* ===== Una Musica per Tutti: foto intera, non tagliata ===== */
+.musica{align-items:center}
+.musica .pics{min-height:0;aspect-ratio:1600/1068;margin:var(--sec) var(--side) var(--sec) 0;border-radius:var(--r);overflow:hidden;align-self:center}
+.musica .pics::before{display:none}
+.musica .pics .p1{object-position:center}
+.musica .wave{display:none}
+@media (max-width:900px){
+  .musica .pics{min-height:0;margin:0 16px var(--sec);aspect-ratio:1600/1068}
+  .musica .txt{padding-bottom:var(--s-lg)}
+}
+/* schermi bassi (portatili con zoom): barra blu nascosta, header più basso,
+   la hero riempie esattamente lo spazio che resta */
+@media (min-width:901px) and (max-height:700px){
+  .topbar{display:none}
+  header.main .wrap{height:68px}
+  .hero{min-height:calc(100vh - 68px);min-height:calc(100svh - 68px);padding:var(--s-md) 0;display:flex;align-items:center}
+  .hero > .wrap{width:100%}
+  .hero h1{font-size:clamp(28px,min(4.4vw,6.6vh),56px)}
+  .hero p.lead{font-size:14px;line-height:1.5;margin:8px 0 16px}
+  .hero .ctas .btn{padding:10px 16px;font-size:14px}
+  .hero .stats{margin-top:14px;gap:var(--s-md)}
+  .hero .stats span{font-size:12px}
+  .emblem{max-width:min(560px,calc(100svh - 150px))}
+  section[id],.band{scroll-margin-top:68px}
 }
 </style>
 <script>document.documentElement.classList.add('js')</script>
@@ -737,7 +784,6 @@ html.menu-open,html.menu-open body{overflow:hidden}
 <main id="main">
   <!-- HERO -->
   <section class="hero" aria-labelledby="t-hero">
-    <svg class="truchet" aria-hidden="true" focusable="false"></svg>
     <div class="wrap">
       <div class="reveal">
         <span class="script">Le Preziosine, scuole che educano, accompagnano, fanno crescere!</span>
@@ -754,6 +800,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
         </div>
       </div>
       <div class="emblem">
+        <svg class="peb peb-1" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M52 4C78 3 97 18 96 45C95 72 74 97 46 96C20 95 3 77 5 50C7 24 26 5 52 4Z"/></svg><svg class="peb peb-2" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M40 6C66 0 94 14 95 40C96 68 70 94 44 95C18 96 2 76 4 50C6 28 18 11 40 6Z"/></svg><svg class="peb peb-3" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M55 8C80 12 95 34 90 58C85 84 58 96 34 90C12 84 3 62 9 40C15 18 32 5 55 8Z"/></svg><svg class="hand" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M9 54C6 27 31 7 57 9C83 11 97 35 92 61C87 85 59 98 35 92C17 87 7 71 12 57"/></svg>
         <div class="sq"><img src="img/campus-monza.jpg" alt="Il cortile alberato del Campus Monza visto dall’alto" width="1920" height="1080" fetchpriority="high" decoding="async"></div>
       </div>
     </div>
@@ -1013,29 +1060,6 @@ addEventListener('keydown',e=>{if(e.key==='Escape'&&hd.classList.contains('nav-o
 document.querySelectorAll('a[aria-disabled=true]').forEach(a=>a.addEventListener('keydown',e=>{if(e.key==='Enter')e.preventDefault()}));
 // il menu mobile si chiude quando si sceglie una voce
 document.querySelectorAll('#menu-principale a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{if(hd.classList.contains('nav-open'))setMenu(false)}));
-// trama geometrica della hero (disposizione fissa, generata da un seme)
-(function(){
-  const svg=document.querySelector('.truchet');if(!svg)return;
-  const hero=svg.parentElement;
-  let seed=1876;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
-  const draw=()=>{
-    const w=hero.clientWidth,h=hero.clientHeight,s=innerWidth<640?36:52,cols=Math.ceil(w/s)+1,rows=Math.ceil(h/s)+1;
-    seed=1876;let out='';const col=['var(--nido)','var(--infanzia)','var(--primaria)','var(--secondaria)','var(--liceo)'];
-    // griglia regolare di punti; qua e là anelli e cerchi pieni,
-    // la stessa coppia anello + cerchio che decora le card delle scuole
-    for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){
-      const cx=x*s+s/2,cy=y*s+s/2,k=rnd();
-      if(k<.08)out+=`<circle class="ring" cx="${cx}" cy="${cy}" r="${s*.34}"/>`;
-      else if(k<.12)out+=`<circle class="ring" cx="${cx}" cy="${cy}" r="${s*.34}"/><circle class="soft" cx="${cx+s*.16}" cy="${cy+s*.16}" r="${s*.22}"/>`;
-      else if(k<.15)out+=`<circle class="soft" cx="${cx}" cy="${cy}" r="${s*.26}"/>`;
-      else if(k<.18)out+=`<circle class="dot" cx="${cx}" cy="${cy}" r="${s*.08}" style="fill:${col[Math.floor(rnd()*col.length)]}"/>`;
-      else out+=`<circle class="pt" cx="${cx}" cy="${cy}" r="1.6"/>`;
-    }
-    svg.setAttribute('viewBox',`0 0 ${w} ${h}`);
-    svg.innerHTML=out;
-  };
-  draw();let t;addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(draw,150)});
-})();
 // comparsa allo scroll
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
