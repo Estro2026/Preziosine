@@ -704,7 +704,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .hero .ctas .btn{padding:10px 16px;font-size:14px}
   .hero .stats{margin-top:14px;gap:var(--s-md)}
   .hero .stats span{font-size:12px}
-  .emblem{max-width:min(560px,calc(100svh - 190px))}
+  .emblem{max-width:min(560px,calc(100svh - 205px))}
   section[id],.band{scroll-margin-top:68px}
 }
 /* tablet: le quattro voci della barra blu, due a sinistra e due a destra */
@@ -719,23 +719,22 @@ html.menu-open,html.menu-open body{overflow:hidden}
 .emblem{isolation:isolate}
 .geo{position:absolute;inset:0;z-index:-1;pointer-events:none}
 .geo i{position:absolute;display:block}
-.g-circle{width:64%;aspect-ratio:1;border-radius:50%;background:var(--azzurro-soft);right:-20%;top:-16%}
-.g-ring{width:86%;aspect-ratio:1;border-radius:50%;border:1.5px solid rgba(0,150,180,.45);right:-31%;top:-27%}
-.g-half{width:24%;aspect-ratio:2/1;border-radius:999px 999px 0 0;background:var(--rosa-soft);left:16%;top:-8.5%}
-.g-tri-line{width:30%;aspect-ratio:1;left:-21%;top:6%;background:rgba(0,150,180,.16);clip-path:polygon(50% 0,100% 86.6%,0 86.6%);transform:rotate(-12deg)}
-.g-tri{width:17%;aspect-ratio:1;left:-10%;top:20%;background:var(--rosa);clip-path:polygon(50% 0,100% 86.6%,0 86.6%);transform:rotate(-12deg);opacity:.9}
-.g-square{width:24%;aspect-ratio:1;background:var(--azzurro-dark);left:-9%;bottom:-9%}
-.g-dot{width:5%;aspect-ratio:1;border-radius:50%;background:var(--rosa);left:20%;bottom:-11%}
-.g-diamond{width:15%;aspect-ratio:1;border:1.5px solid var(--rosa);right:-6%;bottom:-6%;transform:rotate(45deg)}
-@media (max-width:900px),(max-width:1100px) and (orientation:portrait){
-  .g-circle{width:56%;right:-10%;top:-10%}
-  .g-ring{width:62%;right:-12%;top:-11%}
-  .g-tri-line{left:-8%;top:8%;width:24%}
-  .g-tri{left:-3%;top:18%;width:13%}
-  .g-square{width:20%;left:-4%;bottom:-6%}
-  .g-diamond{right:-3%;bottom:-4%;width:12%}
-  .g-half{top:-6%}
-}
+/* le forme stanno tutte dentro il riquadro della composizione:
+   la foto occupa il centro, le figure lo spazio intorno, senza uscire dai bordi */
+.emblem .sq{inset:8%}
+@media (min-width:1101px){.hero .wrap{grid-template-columns:1fr 1.18fr;gap:var(--s-xl)}}
+.geo{inset:0;overflow:hidden}
+.g-ring{width:60%;aspect-ratio:1;border-radius:50%;border:1.5px solid rgba(0,150,180,.45);right:0;top:0}
+.g-circle{width:44%;aspect-ratio:1;border-radius:50%;background:var(--azzurro-soft);right:8%;top:8%}
+.g-half{width:22%;aspect-ratio:2/1;border-radius:999px 999px 0 0;background:var(--rosa-soft);left:22%;top:0}
+.g-tri-line{width:24%;aspect-ratio:1;left:1%;top:15%;background:rgba(0,150,180,.16);clip-path:polygon(50% 0,100% 86.6%,0 86.6%);transform:rotate(-8deg)}
+.g-tri{width:13%;aspect-ratio:1;left:5%;top:29%;background:var(--rosa);clip-path:polygon(50% 0,100% 86.6%,0 86.6%);transform:rotate(-8deg);opacity:.9}
+.g-square{width:21%;aspect-ratio:1;background:var(--azzurro-dark);left:0;bottom:0}
+.g-dot{width:4.5%;aspect-ratio:1;border-radius:50%;background:var(--rosa);left:26%;bottom:2.5%}
+.g-diamond{width:12%;aspect-ratio:1;border:1.5px solid var(--rosa);right:4%;bottom:4%;transform:rotate(45deg)}
+/* la composizione è un po' più grande perché la foto ne occupa il centro */
+.emblem{max-width:min(680px,calc(100svh - 225px))}
+@media (max-width:1100px){.emblem{max-width:none}}
 /* schermi stretti o zoomati: pulsante dell'header proporzionato */
 @media (max-width:1260px){.header-cta .btn{padding:9px 14px;font-size:13.5px}}
 @media (max-height:700px){.header-cta .btn{padding:8px 14px;font-size:13px}}
