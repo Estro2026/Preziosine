@@ -683,16 +683,6 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .hero .stats b{font-size:clamp(26px,5vh,36px)}
   .hero .btn{padding:11px 18px}
 }
-/* ===== Una Musica per Tutti: foto intera, non tagliata ===== */
-.musica{align-items:center}
-.musica .pics{min-height:0;aspect-ratio:1600/1068;margin:var(--sec) var(--side) var(--sec) 0;border-radius:var(--r);overflow:hidden;align-self:center}
-.musica .pics::before{display:none}
-.musica .pics .p1{object-position:center}
-.musica .wave{display:none}
-@media (max-width:900px){
-  .musica .pics{min-height:0;margin:0 16px var(--sec);aspect-ratio:1600/1068}
-  .musica .txt{padding-bottom:var(--s-lg)}
-}
 /* schermi bassi (portatili con zoom): barra blu nascosta, header più basso,
    la hero riempie esattamente lo spazio che resta */
 @media (min-width:901px) and (max-height:700px){
@@ -738,11 +728,88 @@ html.menu-open,html.menu-open body{overflow:hidden}
 /* schermi stretti o zoomati: pulsante dell'header proporzionato */
 @media (max-width:1260px){.header-cta .btn{padding:9px 14px;font-size:13.5px}}
 @media (max-height:700px){.header-cta .btn{padding:8px 14px;font-size:13px}}
-/* Una Musica per Tutti tra 901 e 1260 px: foto più grande, stessa impaginazione del desktop */
+/* ===== Una Musica per Tutti: foto a tutta altezza, sfumata nello sfondo =====
+   la colonna della foto si allarga quando lo schermo è stretto o zoomato,
+   così l'immagine resta vicina al suo formato e viene tagliata il meno possibile */
+.musica{align-items:stretch;grid-template-columns:1fr 1fr}
+.musica .pics{min-height:560px;margin:0;border-radius:0;aspect-ratio:auto}
+.musica .pics::before{display:block;background:linear-gradient(90deg,var(--ink) 0%,rgba(30,42,68,.55) 18%,rgba(30,42,68,0) 45%)}
+.musica .pics .p1{object-position:62% center}
+.musica .wave{display:none}
 @media (min-width:901px) and (max-width:1260px){
-  .musica{grid-template-columns:.9fr 1.1fr}
-  .musica .txt{padding-right:var(--s-xl)}
-  .musica .pics{margin:var(--s-2xl) var(--side) var(--s-2xl) 0}
+  .musica{grid-template-columns:.85fr 1.15fr}
+  .musica .txt{padding-right:var(--s-lg)}
+}
+@media (min-width:901px) and (max-height:700px){
+  .musica .txt{padding-top:var(--s-2xl);padding-bottom:var(--s-2xl)}
+  .musica .pics{min-height:0}
+}
+@media (max-width:900px){
+  .musica .pics{min-height:0;aspect-ratio:3/2}
+  .musica .pics::before{background:linear-gradient(180deg,var(--ink) 0%,rgba(30,42,68,0) 35%)}
+  .musica .txt{padding-bottom:var(--s-md)}
+}
+/* ===== hero: figure più visibili =====
+   la foto si sposta in alto a sinistra nel riquadro; le figure grandi stanno dietro
+   e sporgono a destra e in basso, quelle piccole stanno davanti, sul bordo della foto */
+.emblem .sq{inset:7% 15% 15% 7%}
+.geo-front{z-index:2}
+.g-ring{width:62%;right:0;top:0}
+.g-circle{width:44%;right:2%;top:5%}
+.g-square{width:27%;left:0;bottom:0}
+.g-half{width:28%;aspect-ratio:2/1;border-radius:0 0 999px 999px;left:36%;bottom:0;top:auto;background:var(--rosa-soft)}
+.g-tri-line{width:22%;left:0;top:0;transform:rotate(-8deg)}
+.g-tri{width:11%;left:5%;top:11%;transform:rotate(-8deg)}
+.g-diamond{width:13%;right:9%;bottom:9%}
+.g-dot{width:5%;left:31%;bottom:2%}
+@media (min-width:1101px){.hero .wrap{grid-template-columns:1fr 1.08fr;gap:var(--s-xl)}.hero .stats{flex-wrap:nowrap;gap:var(--s-lg)}}
+.emblem{max-width:min(720px,calc(100svh - 225px))}
+@media (min-width:901px) and (max-width:1100px) and (orientation:landscape){.emblem{max-width:min(100%,calc(100svh - 230px))}}
+@media (max-width:900px),(max-width:1100px) and (orientation:portrait){.emblem{max-width:none}}
+@media (min-width:901px) and (max-height:700px){.emblem{max-width:min(600px,calc(100svh - 205px))}}
+/* schermi stretti o zoomati: la foto non si allunga in verticale ma resta 4:3,
+   centrata e sfumata su tre lati nello sfondo scuro */
+@media (min-width:901px) and (max-width:1260px),(min-width:901px) and (max-height:700px){
+  .musica .pics{align-self:center;aspect-ratio:4/3;min-height:0;height:auto;
+    -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 16%,#000 84%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 16%,#000 84%,transparent 100%)}
+}
+/* ===== schermi zoomati: finestre larghe ma basse =====
+   con lo zoom del browser la finestra diventa stretta e bassa, ma resta
+   orizzontale: la hero tiene testo e foto affiancati e si adatta all'altezza
+   disponibile invece di impilarsi come su tablet */
+@media (min-width:641px) and (max-width:1100px) and (orientation:landscape) and (max-height:760px){
+  header.main .wrap{height:64px}
+  .hero{display:flex;align-items:center;min-height:calc(100vh - 106px);min-height:calc(100svh - 106px);padding:var(--s-md) 0}
+  .hero > .wrap{flex:none;width:100%;display:grid;grid-template-columns:1.06fr 1fr;gap:var(--s-lg);align-items:center}
+  .hero > .wrap > .reveal{min-width:0}
+  .emblem{flex:none;aspect-ratio:1/1;min-height:0;width:100%;max-width:min(100%,calc(100svh - 190px));justify-self:end;margin:0}
+  .hero .script{font-size:clamp(16px,3.2vh,22px);margin-bottom:var(--s-xs)}
+  .hero h1{font-size:clamp(26px,min(4.4vw,6.6vh),44px)}
+  .hero p.lead{font-size:14px;line-height:1.5;margin:var(--s-xs) 0 var(--s-md);max-width:none}
+  .hero .ctas{display:flex;flex-wrap:wrap;gap:var(--s-xs)}
+  .hero .ctas .btn{width:auto;padding:10px 16px;font-size:14px;min-height:0}
+  .hero .stats{margin-top:var(--s-md);flex-wrap:nowrap;gap:var(--s-md)}
+  .hero .stats b{font-size:clamp(22px,4.6vh,32px)}
+  .hero .stats span{font-size:11px}
+  section[id],.band{scroll-margin-top:64px}
+}
+/* zoom molto forte: restano titolo, testo e pulsanti; i numeri cedono il posto */
+@media (min-width:641px) and (max-width:1100px) and (orientation:landscape) and (max-height:540px){
+  .hero{min-height:calc(100vh - 100px);min-height:calc(100svh - 100px);padding:var(--s-sm) 0}
+  .hero .script{font-size:16px}
+  .hero h1{font-size:clamp(24px,5.6vh,34px)}
+  .hero .stats{display:none}
+  .emblem{max-width:min(100%,calc(100svh - 150px))}
+}
+/* finestre molto zoomate: il testo prende più spazio della foto */
+@media (min-width:641px) and (max-width:860px) and (orientation:landscape) and (max-height:760px){
+  .hero > .wrap{grid-template-columns:1.35fr 1fr;gap:var(--s-md)}
+  .hero .script{font-size:15px;line-height:1.3}
+  .hero h1{font-size:clamp(22px,min(4.2vw,5.4vh),30px)}
+  .hero p.lead{font-size:13.5px;margin:6px 0 12px}
+  .hero .ctas .btn{padding:9px 13px;font-size:13px}
+  .hero .stats b{font-size:clamp(20px,4vh,26px)}
+  .emblem{max-width:min(100%,calc(100svh - 170px))}
 }
 </style>
 <script>document.documentElement.classList.add('js')</script>
@@ -815,8 +882,9 @@ html.menu-open,html.menu-open body{overflow:hidden}
         </div>
       </div>
       <div class="emblem">
-        <span class="geo" aria-hidden="true"><i class="g-circle"></i><i class="g-ring"></i><i class="g-square"></i><i class="g-diamond"></i><i class="g-tri"></i><i class="g-tri-line"></i><i class="g-dot"></i><i class="g-half"></i></span>
+        <span class="geo" aria-hidden="true"><i class="g-ring"></i><i class="g-circle"></i><i class="g-square"></i><i class="g-half"></i></span>
         <div class="sq"><img src="img/campus-monza.jpg" alt="Il cortile alberato del Campus Monza visto dall’alto" width="1920" height="1080" fetchpriority="high" decoding="async"></div>
+        <span class="geo geo-front" aria-hidden="true"><i class="g-tri-line"></i><i class="g-tri"></i><i class="g-diamond"></i><i class="g-dot"></i></span>
       </div>
     </div>
   </section>
