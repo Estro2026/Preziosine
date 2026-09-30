@@ -859,6 +859,24 @@ html.menu-open,html.menu-open body{overflow:hidden}
   #campus > .wrap{display:block;width:100%}
   .campus .img{height:clamp(200px,calc(100vh - 825px),380px);height:clamp(200px,calc(100svh - 825px),380px)}
 }
+/* ===== Una Musica per Tutti su telefono e tablet =====
+   la regola a due colonne per il desktop vale solo da 901px in su: sotto,
+   testo e foto si impilano, con la foto a tutta larghezza sotto il testo */
+@media (max-width:900px){
+  .musica{grid-template-columns:1fr;align-items:start}
+  .musica .txt{padding:var(--sec) var(--side) var(--s-xl)}
+  .musica .pics{width:100%;height:auto;min-height:0;aspect-ratio:3/2;align-self:auto}
+  .musica .pics .p1{position:absolute;inset:0;width:100%;height:100%}
+  /* la foto sfuma verso l'alto nel fondo scuro del testo */
+  .musica .pics::before{background:linear-gradient(180deg,var(--ink) 0%,rgba(30,42,68,0) 32%)}
+  /* il credito resta leggibile anche sopra le parti chiare della foto */
+  .musica .credit{right:var(--s-sm);bottom:var(--s-xs);text-shadow:0 1px 4px rgba(0,0,0,.7)}
+}
+@media (max-width:640px){
+  .musica .txt{padding:var(--sec) var(--side) var(--s-lg)}
+  .musica .pics{aspect-ratio:4/3}
+  .musica .ctas .btn{width:100%;justify-content:center}
+}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
