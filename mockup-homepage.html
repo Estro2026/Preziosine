@@ -616,7 +616,7 @@ html{background:var(--crema)}
   .emblem .sq{border-radius:28px}
   section[id],.band{scroll-margin-top:68px}
 }
-@media (max-width:360px){.stats b{font-size:24px}.hero h1{font-size:32px}}
+@media (max-width:360px){.stats b{font-size:24px}.hero h1{font-size:32px}.stats{gap:10px}.stats span{font-size:11px;letter-spacing:-.01em}}
 /* ancore: il titolo non finisce sotto l'header fisso */
 section[id],.band{scroll-margin-top:90px}
 /* ===== menu mobile a schermo intero, chiusura con la X ===== */
@@ -982,7 +982,7 @@ document.querySelectorAll('[data-count]').forEach(el=>{
 // tipografia italiana: niente parole brevi a fine riga, niente parola sola sull'ultima riga
 (function(){
   const brevi=/(^|\s)(e|è|a|o|i|il|lo|la|le|gli|un|uno|una|di|da|in|con|su|per|tra|fra|al|ai|del|dei|della|nel|nella|ed|ad|ore|n\.)\s+/gi;
-  document.querySelectorAll('h1,h2,h3,p,li,small,.lead,.step b,.way b,.script,.iscr-links a,.openday a').forEach(el=>{
+  document.querySelectorAll('h1,h2,h3,p,li,small,.lead,.step b,.way b,.script,.iscr-links a,.openday a,.stats > div > span,.facts small,.path .age').forEach(el=>{
     const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let n,last=null;
     while(n=w.nextNode()){n.nodeValue=n.nodeValue.replace(brevi,(m,s,p)=>s+p+' ');last=n}
     if(last&&el.textContent.trim().split(/\s+/).length>3){last.nodeValue=last.nodeValue.replace(/\s+(\S+)\s*$/,' $1')}
