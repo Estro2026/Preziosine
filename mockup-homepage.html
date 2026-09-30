@@ -575,20 +575,6 @@ h1,h2,h3,p,li,a,span,b{overflow-wrap:break-word}
 @media (max-width:900px){.campus .img{height:260px}}
 
 .hero > .wrap{position:relative;z-index:1}
-/* ===== hero: rettangolo aureo =====
-   la foto è il quadrato maggiore di un rettangolo aureo (1 : φ).
-   accanto: la suddivisione in quadrati, la spirale aurea e le due diagonali
-   che si incontrano nel suo polo. un segno di crescita armonica */
-.emblem{isolation:isolate}
-.golden{position:absolute;z-index:-1;overflow:visible;pointer-events:none;max-width:none;max-height:none}
-.golden *{vector-effect:non-scaling-stroke;fill:none}
-.golden .c{stroke:var(--azzurro);stroke-width:1;opacity:.32}
-.golden .d{stroke:var(--azzurro);stroke-width:1;stroke-dasharray:3 6;opacity:.38}
-.golden .s{stroke:var(--rosa);stroke-width:1.6;opacity:.7}
-.golden .p{fill:var(--rosa);stroke:none}
-.golden .t{fill:var(--azzurro-ui);stroke:none;font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:3.4px;letter-spacing:.02em;opacity:.8}
-.golden-h{right:0;top:0;height:100%;width:161.8%}
-.golden-v{display:none;left:0;bottom:0;width:100%;height:161.8%}
 /* ===== CTA Sostienici sempre raggiungibile ===== */
 .topbar .tb-sost{font-weight:700;color:#FFD3DC}
 .m-only{display:none}
@@ -614,8 +600,6 @@ html{background:var(--crema)}
   .emblem::before{content:"";position:absolute;left:-100vw;right:-100vw;top:45%;bottom:calc(-1 * var(--s-2xl));background:var(--azzurro-soft);z-index:-2}
   .hero .wrap{grid-template-columns:1fr;gap:var(--s-xl)}
   .emblem{max-width:520px;width:100%;justify-self:center;margin:0 auto;aspect-ratio:1/1}
-  .golden-h{display:none}
-  .golden-v{display:none}
 }
 @media (max-width:640px){
   header.main .wrap{height:68px}
@@ -630,12 +614,30 @@ html{background:var(--crema)}
   .stats b{font-size:clamp(26px,8vw,34px);white-space:nowrap}
   .stats span{font-size:12px;line-height:1.35;display:block}
   .emblem .sq{border-radius:28px}
-  .golden .t{font-size:5px}
   section[id],.band{scroll-margin-top:68px}
 }
 @media (max-width:360px){.stats b{font-size:24px}.hero h1{font-size:32px}}
 /* ancore: il titolo non finisce sotto l'header fisso */
 section[id],.band{scroll-margin-top:90px}
+/* ===== menu mobile a schermo intero, chiusura con la X ===== */
+.burger{position:relative;cursor:pointer;border-radius:12px}
+.burger span{transition:transform .3s cubic-bezier(.2,.8,.2,1),opacity .2s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+html.menu-open,html.menu-open body{overflow:hidden}
+@media (max-width:1260px){
+  header.main.nav-open nav.primary{position:fixed;left:0;right:0;bottom:0;top:var(--menu-top,86px);max-height:none;overflow-y:auto;overscroll-behavior:contain;border-bottom:0;padding:var(--s-md) 24px calc(var(--s-xl) + env(safe-area-inset-bottom));background:var(--crema);animation:menuIn .25s ease-out}
+  header.main.nav-open{box-shadow:none;border-color:var(--line);backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--crema)}
+}
+@media (max-width:640px){header.main.nav-open nav.primary{padding-left:16px;padding-right:16px}}
+@keyframes menuIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+/* sostienici: le forme restano sotto card e testi */
+.support::before,.support::after{z-index:0}
+.support > *{position:relative;z-index:1}
+.way{background:#A93E5E;border-color:rgba(255,255,255,.28)}
+.way:hover{background:#9C3656}
+@media (max-width:900px){.support::before{left:-220px;bottom:-320px}.support::after{right:-140px;top:-170px}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -707,8 +709,6 @@ section[id],.band{scroll-margin-top:90px}
         </div>
       </div>
       <div class="emblem">
-        <svg class="golden golden-h" viewBox="0 0 161.8 100" aria-hidden="true" focusable="false"><g><path class="c" d="M0 0H161.8V100H0Z M61.8 0V100 M0 61.8H61.8 M38.2 61.8V100 M38.2 76.4H61.8 M47 61.8V76.4 M38.2 70.6H47"/><path class="d" d="M0 100 161.8 0 M0 0 61.8 100"/><path class="s" d="M161.8 100A100 100 0 0 0 61.8 0A61.8 61.8 0 0 0 0 61.8A38.2 38.2 0 0 0 38.2 100A23.6 23.6 0 0 0 61.8 76.4A14.6 14.6 0 0 0 47 61.8A8.8 8.8 0 0 0 38.2 70.6"/><circle class="p" cx="45.1" cy="72.3" r="1.1"/></g><text class="t" x="2.5" y="5.5">φ = 1,618…</text></svg>
-        <svg class="golden golden-v" viewBox="0 0 100 161.8" aria-hidden="true" focusable="false"><g transform="matrix(0 1 1 0 0 0)"><path class="c" d="M0 0H161.8V100H0Z M61.8 0V100 M0 61.8H61.8 M38.2 61.8V100 M38.2 76.4H61.8 M47 61.8V76.4 M38.2 70.6H47"/><path class="d" d="M0 100 161.8 0 M0 0 61.8 100"/><path class="s" d="M161.8 100A100 100 0 0 0 61.8 0A61.8 61.8 0 0 0 0 61.8A38.2 38.2 0 0 0 38.2 100A23.6 23.6 0 0 0 61.8 76.4A14.6 14.6 0 0 0 47 61.8A8.8 8.8 0 0 0 38.2 70.6"/><circle class="p" cx="45.1" cy="72.3" r="1.1"/></g><text class="t" x="2.5" y="5.5">φ = 1,618…</text></svg>
         <div class="sq"><img src="img/campus-monza.jpg" alt="Il cortile alberato del Campus Monza visto dall’alto" width="1920" height="1080" fetchpriority="high" decoding="async"></div>
       </div>
     </div>
@@ -960,12 +960,14 @@ const hd=document.querySelector('header.main');
 addEventListener('scroll',()=>hd.classList.toggle('scrolled',scrollY>10),{passive:true});
 // menu mobile
 const burger=document.querySelector('.burger');
-burger.addEventListener('click',()=>{const open=hd.classList.toggle('nav-open');burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Chiudi il menu':'Apri il menu')});
-addEventListener('keydown',e=>{if(e.key==='Escape'&&hd.classList.contains('nav-open')){hd.classList.remove('nav-open');burger.setAttribute('aria-expanded','false');burger.focus()}});
+const setMenu=open=>{hd.classList.toggle('nav-open',open);document.documentElement.classList.toggle('menu-open',open);burger.setAttribute('aria-expanded',open);burger.setAttribute('aria-label',open?'Chiudi il menu':'Apri il menu');if(open)document.documentElement.style.setProperty('--menu-top',Math.round(hd.getBoundingClientRect().bottom)+'px')};
+burger.addEventListener('click',()=>setMenu(!hd.classList.contains('nav-open')));
+addEventListener('resize',()=>{if(innerWidth>1260&&hd.classList.contains('nav-open'))setMenu(false)});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&hd.classList.contains('nav-open')){setMenu(false);burger.focus()}});
 // link segnaposto: attivabili anche da tastiera, senza navigare
 document.querySelectorAll('a[aria-disabled=true]').forEach(a=>a.addEventListener('keydown',e=>{if(e.key==='Enter')e.preventDefault()}));
 // il menu mobile si chiude quando si sceglie una voce
-document.querySelectorAll('#menu-principale a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{if(hd.classList.contains('nav-open')){hd.classList.remove('nav-open');burger.setAttribute('aria-expanded','false')}}));
+document.querySelectorAll('#menu-principale a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{if(hd.classList.contains('nav-open'))setMenu(false)}));
 // comparsa allo scroll
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
