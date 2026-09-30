@@ -794,7 +794,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
   section[id],.band{scroll-margin-top:64px}
 }
 /* zoom molto forte: restano titolo, testo e pulsanti; i numeri cedono il posto */
-@media (min-width:641px) and (max-width:1100px) and (orientation:landscape) and (max-height:540px){
+@media (min-width:641px) and (max-width:1100px) and (orientation:landscape) and (max-height:460px){
   .hero{min-height:calc(100vh - 100px);min-height:calc(100svh - 100px);padding:var(--s-sm) 0}
   .hero .script{font-size:16px}
   .hero h1{font-size:clamp(24px,5.6vh,34px)}
@@ -810,6 +810,18 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .hero .ctas .btn{padding:9px 13px;font-size:13px}
   .hero .stats b{font-size:clamp(20px,4vh,26px)}
   .emblem{max-width:min(100%,calc(100svh - 170px))}
+}
+/* ===== schermi zoomati: la foto riempie lo spazio accanto al testo =====
+   la colonna della composizione è larga esattamente quanto la composizione,
+   così non resta spazio vuoto tra testo e immagine; la composizione cresce
+   fino all'altezza disponibile e le forme restano intere dentro il riquadro */
+@media (min-width:641px) and (orientation:landscape) and (max-height:820px){
+  .hero > .wrap{grid-template-columns:minmax(0,1fr) auto;gap:var(--s-lg);align-items:center}
+  .emblem{width:min(52vw,calc(100svh - 182px));max-width:none;min-height:0;aspect-ratio:1/1;margin:0;justify-self:end;flex:none}
+}
+@media (min-width:641px) and (max-width:900px) and (orientation:landscape) and (max-height:820px){
+  .hero > .wrap{gap:var(--s-md)}
+  .emblem{width:min(46vw,calc(100svh - 172px))}
 }
 </style>
 <script>document.documentElement.classList.add('js')</script>
