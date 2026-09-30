@@ -767,11 +767,21 @@ html.menu-open,html.menu-open body{overflow:hidden}
 @media (min-width:901px) and (max-width:1100px) and (orientation:landscape){.emblem{max-width:min(100%,calc(100svh - 230px))}}
 @media (max-width:900px),(max-width:1100px) and (orientation:portrait){.emblem{max-width:none}}
 @media (min-width:901px) and (max-height:700px){.emblem{max-width:min(600px,calc(100svh - 205px))}}
-/* schermi stretti o zoomati: la foto non si allunga in verticale ma resta 4:3,
-   sfumata solo in alto: in basso resta leggibile la firma del fotografo */
+/* schermi stretti o zoomati: la foto non si allunga in verticale ma resta 4:3
+   e sfuma nello sfondo scuro sopra e sotto. La firma del fotografo è impressa
+   in basso al centro dell'immagine (94-99% dell'altezza): la sfumatura in basso
+   le lascia intorno una finestra piena, così resta leggibile. */
 @media (min-width:901px) and (max-width:1260px),(min-width:901px) and (max-height:700px){
   .musica .pics{align-self:center;aspect-ratio:4/3;min-height:0;height:auto;
-    -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 100%)}
+    -webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 78%,transparent 100%),radial-gradient(ellipse 15% 13% at 49.4% 96.5%,#000 70%,transparent 100%);
+    mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 78%,transparent 100%),radial-gradient(ellipse 15% 13% at 49.4% 96.5%,#000 70%,transparent 100%);
+    -webkit-mask-composite:source-over;mask-composite:add}
+  /* se il browser non sa unire due maschere, la sfumatura in basso si ferma
+     prima della firma invece di coprirla */
+  @supports not (mask-composite:add){
+    .musica .pics{-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 88%,rgba(0,0,0,.72) 100%);
+      mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 88%,rgba(0,0,0,.72) 100%)}
+  }
 }
 /* ===== schermi zoomati: finestre larghe ma basse =====
    con lo zoom del browser la finestra diventa stretta e bassa, ma resta
