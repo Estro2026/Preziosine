@@ -863,21 +863,28 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .musica .pics{aspect-ratio:4/3}
   .musica .ctas .btn{width:100%;justify-content:center}
 }
-/* ===== hero: quattro rombi in contorno, dietro la foto =====
-   colori campionati dalla grafica degli Open Day. Stanno sul fondo, dietro
-   l'immagine: se ne intravedono le punte e i lati che sporgono dal bordo.
-   Misure, posizioni e inclinazioni sono tutte diverse, per evitare la
-   simmetria da griglia. La misura è legata al lato corto del riquadro
-   (cqmin), così restano quadrati anche dove il riquadro è largo e basso. */
+/* ===== hero: grappolo di rombi dietro la foto =====
+   colori campionati dalla grafica degli Open Day. Sette rombi di misure
+   diverse, tutti a contorno sottile, concatenati: ognuno si sovrappone al
+   vicino, così formano un unico tracciato che gira intorno alla foto -
+   fitto a destra, dove il margine è più largo, rado in alto a sinistra.
+   La misura è legata al lato corto del riquadro (cqmin), così restano
+   quadrati anche dove il riquadro è largo e basso. */
 .geo{container-type:size}
-.geo i{position:absolute;aspect-ratio:1;background:none;border-style:solid;border-width:3px;
+.geo i{position:absolute;aspect-ratio:1;background:none;border-style:solid;border-width:1.5px;
   width:calc(var(--w) * 1%);left:var(--x);top:var(--y);opacity:var(--o,.9);
   transform:translate(-50%,-50%) rotate(var(--r,45deg));mix-blend-mode:normal}
 @supports (width:1cqmin){.geo i{width:calc(var(--w) * 1cqmin)}}
-.gx-d1{--w:46;--x:33%;--y:33%;--r:43deg;--o:1;border-color:#FE0685}
-.gx-d2{--w:44;--x:69%;--y:69%;--r:48deg;--o:.95;border-color:#00B6FF}
-.gx-d3{--w:36;--x:74%;--y:26%;--r:39deg;--o:.9;border-color:#FE7101}
-.gx-d4{--w:32;--x:25%;--y:76%;--r:51deg;--o:.85;border-color:#24DA7A}
+/* grappolo in alto a destra: due rombi incastrati più un piccolo sul fianco */
+.gx-a1{--w:40;--x:70%;--y:34%;--r:45deg;--o:.95;border-color:#FE0685}
+.gx-a2{--w:26;--x:76%;--y:28%;--r:38deg;--o:.8;border-color:#FE7101}
+.gx-a3{--w:15;--x:84%;--y:46%;--r:52deg;--o:1;border-color:#2E2CC5}
+/* la catena scende in basso a destra e attraversa il fondo */
+.gx-b1{--w:34;--x:62%;--y:72%;--r:47deg;--o:.9;border-color:#00B6FF}
+.gx-b2{--w:20;--x:40%;--y:82%;--r:41deg;--o:.75;border-color:#24DA7A}
+/* e risale sul fianco sinistro, più rada */
+.gx-c1{--w:24;--x:22%;--y:60%;--r:50deg;--o:.8;border-color:#FE0685}
+.gx-c2{--w:15;--x:15%;--y:40%;--r:44deg;--o:.75;border-color:#00B6FF}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -949,7 +956,7 @@ html.menu-open,html.menu-open body{overflow:hidden}
         </div>
       </div>
       <div class="emblem">
-        <span class="geo" aria-hidden="true"><i class="gx-d1"></i><i class="gx-d2"></i><i class="gx-d3"></i><i class="gx-d4"></i></span>
+        <span class="geo" aria-hidden="true"><i class="gx-a1"></i><i class="gx-a2"></i><i class="gx-a3"></i><i class="gx-b1"></i><i class="gx-b2"></i><i class="gx-c1"></i><i class="gx-c2"></i></span>
         
         <div class="sq"><img src="img/hero.webp" alt="Il cortile alberato del Campus Monza visto dall’alto" width="1920" height="1080" fetchpriority="high" decoding="async"></div>
         
