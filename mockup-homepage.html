@@ -748,7 +748,9 @@ html.menu-open,html.menu-open body{overflow:hidden}
 /* ===== hero: figure più visibili =====
    la foto si sposta in alto a sinistra nel riquadro; le figure grandi stanno dietro
    e sporgono a destra e in basso, quelle piccole stanno davanti, sul bordo della foto */
-.emblem .sq{inset:7% 15% 15% 7%}
+/* la foto lascia una fascia più larga tutto intorno, così i rombi dietro
+   si leggono davvero invece di appena affiorare */
+.emblem .sq{inset:11% 20% 20% 11%}
 .geo-front{z-index:2}
 @media (min-width:1101px){.hero .wrap{grid-template-columns:1fr 1.08fr;gap:var(--s-xl)}.hero .stats{flex-wrap:nowrap;gap:var(--s-lg)}}
 .emblem{max-width:min(720px,calc(100svh - 225px))}
@@ -868,14 +870,14 @@ html.menu-open,html.menu-open body{overflow:hidden}
    simmetria da griglia. La misura è legata al lato corto del riquadro
    (cqmin), così restano quadrati anche dove il riquadro è largo e basso. */
 .geo{container-type:size}
-.geo i{position:absolute;aspect-ratio:1;background:none;border-style:solid;border-width:2px;
+.geo i{position:absolute;aspect-ratio:1;background:none;border-style:solid;border-width:3px;
   width:calc(var(--w) * 1%);left:var(--x);top:var(--y);opacity:var(--o,.9);
   transform:translate(-50%,-50%) rotate(var(--r,45deg));mix-blend-mode:normal}
 @supports (width:1cqmin){.geo i{width:calc(var(--w) * 1cqmin)}}
-.gx-d1{--w:44;--x:35%;--y:34%;--r:43deg;--o:.9;border-color:#FE0685}
-.gx-d2{--w:41;--x:68%;--y:70%;--r:48deg;--o:.85;border-color:#00B6FF}
-.gx-d3{--w:33;--x:75%;--y:29%;--r:39deg;--o:.8;border-color:#FE7101}
-.gx-d4{--w:29;--x:27%;--y:77%;--r:51deg;--o:.75;border-color:#24DA7A}
+.gx-d1{--w:46;--x:33%;--y:33%;--r:43deg;--o:1;border-color:#FE0685}
+.gx-d2{--w:44;--x:69%;--y:69%;--r:48deg;--o:.95;border-color:#00B6FF}
+.gx-d3{--w:36;--x:74%;--y:26%;--r:39deg;--o:.9;border-color:#FE7101}
+.gx-d4{--w:32;--x:25%;--y:76%;--r:51deg;--o:.85;border-color:#24DA7A}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
