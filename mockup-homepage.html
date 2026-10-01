@@ -861,18 +861,21 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .musica .pics{aspect-ratio:4/3}
   .musica .ctas .btn{width:100%;justify-content:center}
 }
-/* ===== hero: quattro rombi in contorno =====
-   colori campionati dalla grafica degli Open Day. Quattro rombi grandi,
-   uno per angolo, incrociati con la foto: ciascuno la scavalca con due lati
-   e sporge nel margine, così risultano agganciati all'immagine e non
-   appoggiati accanto. Sono posizionati dal centro e restano nel riquadro. */
-.geo i{position:absolute;aspect-ratio:1;background:none;border-style:solid;border-width:3px;
-  width:var(--w);left:var(--x);top:var(--y);
-  transform:translate(-50%,-50%) rotate(45deg);mix-blend-mode:normal}
-.gx-d1{--w:36%;--x:26%;--y:26%;border-color:#FE0685}
-.gx-d2{--w:32%;--x:76%;--y:24%;border-color:#00B6FF}
-.gx-d3{--w:34%;--x:74%;--y:76%;border-color:#FE7101}
-.gx-d4{--w:30%;--x:24%;--y:76%;border-color:#24DA7A}
+/* ===== hero: quattro rombi in contorno, dietro la foto =====
+   colori campionati dalla grafica degli Open Day. Stanno sul fondo, dietro
+   l'immagine: se ne intravedono le punte e i lati che sporgono dal bordo.
+   Misure, posizioni e inclinazioni sono tutte diverse, per evitare la
+   simmetria da griglia. La misura è legata al lato corto del riquadro
+   (cqmin), così restano quadrati anche dove il riquadro è largo e basso. */
+.geo{container-type:size}
+.geo i{position:absolute;aspect-ratio:1;background:none;border-style:solid;border-width:2px;
+  width:calc(var(--w) * 1%);left:var(--x);top:var(--y);opacity:var(--o,.9);
+  transform:translate(-50%,-50%) rotate(var(--r,45deg));mix-blend-mode:normal}
+@supports (width:1cqmin){.geo i{width:calc(var(--w) * 1cqmin)}}
+.gx-d1{--w:44;--x:35%;--y:34%;--r:43deg;--o:.9;border-color:#FE0685}
+.gx-d2{--w:41;--x:68%;--y:70%;--r:48deg;--o:.85;border-color:#00B6FF}
+.gx-d3{--w:33;--x:75%;--y:29%;--r:39deg;--o:.8;border-color:#FE7101}
+.gx-d4{--w:29;--x:27%;--y:77%;--r:51deg;--o:.75;border-color:#24DA7A}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -944,9 +947,10 @@ html.menu-open,html.menu-open body{overflow:hidden}
         </div>
       </div>
       <div class="emblem">
+        <span class="geo" aria-hidden="true"><i class="gx-d1"></i><i class="gx-d2"></i><i class="gx-d3"></i><i class="gx-d4"></i></span>
         
         <div class="sq"><img src="img/hero.webp" alt="Il cortile alberato del Campus Monza visto dall’alto" width="1920" height="1080" fetchpriority="high" decoding="async"></div>
-        <span class="geo geo-front" aria-hidden="true"><i class="gx-d1"></i><i class="gx-d2"></i><i class="gx-d3"></i><i class="gx-d4"></i></span>
+        
       </div>
     </div>
   </section>
