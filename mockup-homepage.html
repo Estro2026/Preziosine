@@ -862,23 +862,27 @@ html.menu-open,html.menu-open body{overflow:hidden}
   .musica .ctas .btn{width:100%;justify-content:center}
 }
 /* ===== hero: composizione di rombi in contorno =====
-   le forme e i colori vengono dalla grafica degli Open Day: rombi di misure
-   diverse, solo contorno, nei colori campionati dalla locandina. I rombi
-   grandi stanno dietro la foto e sporgono intorno, i piccoli le stanno
-   davanti appoggiati ai bordi. */
+   forme e colori vengono dalla grafica degli Open Day. Rombi piccoli
+   distribuiti intorno alla foto: tre più larghi e tenui restano sullo sfondo
+   come eco, otto minuti e più marcati stanno davanti, appoggiati ai bordi.
+   Ogni rombo è posizionato dal suo centro, così resta dentro il riquadro. */
 .geo i{position:absolute;aspect-ratio:1;background:none;border-style:solid;
-  border-width:3px;width:var(--w);left:var(--x);top:var(--y);
+  border-width:2px;width:var(--w);left:var(--x);top:var(--y);opacity:var(--o,1);
   transform:translate(-50%,-50%) rotate(45deg);mix-blend-mode:normal}
-.geo-front i{border-width:2px}
-/* rombi grandi, dietro la foto */
-.gx-d1{--w:60%;--x:56%;--y:44%;border-color:#FE0685}
-.gx-d2{--w:44%;--x:68%;--y:68%;border-color:#00B6FF}
-.gx-d3{--w:30%;--x:24%;--y:76%;border-color:#FE7101}
-/* rombi piccoli, davanti alla foto */
-.gx-d4{--w:18%;--x:16%;--y:20%;border-color:#DCFD27}
-.gx-d5{--w:13%;--x:88%;--y:22%;border-color:#2E2CC5}
-.gx-d6{--w:22%;--x:82%;--y:50%;border-color:#24DA7A}
-.gx-d7{--w:10%;--x:40%;--y:92%;border-color:#F2131F}
+/* eco sullo sfondo: più larghi, quasi trasparenti */
+.geo-back i{border-width:1.5px}
+.gx-b1{--w:30%;--x:30%;--y:24%;--o:.42;border-color:#FE0685}
+.gx-b2{--w:26%;--x:76%;--y:62%;--o:.45;border-color:#00B6FF}
+.gx-b3{--w:22%;--x:52%;--y:84%;--o:.4;border-color:#FE7101}
+/* primo piano: piccoli, distribuiti tutto intorno con pesi diversi */
+.gx-f1{--w:12%;--x:10%;--y:16%;--o:.85;border-color:#DCFD27}
+.gx-f2{--w:9%;--x:40%;--y:7%;--o:.6;border-color:#2E2CC5}
+.gx-f3{--w:14%;--x:88%;--y:20%;--o:1;border-color:#FE0685}
+.gx-f4{--w:8%;--x:93%;--y:46%;--o:.7;border-color:#24DA7A}
+.gx-f5{--w:12%;--x:86%;--y:78%;--o:.95;border-color:#FE7101}
+.gx-f6{--w:9%;--x:52%;--y:93%;--o:.65;border-color:#00B6FF}
+.gx-f7{--w:7%;--x:22%;--y:92%;--o:.9;border-color:#F2131F}
+.gx-f8{--w:10%;--x:8%;--y:64%;--o:.5;border-color:#24DA7A}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -950,9 +954,9 @@ html.menu-open,html.menu-open body{overflow:hidden}
         </div>
       </div>
       <div class="emblem">
-        <span class="geo" aria-hidden="true"><i class="gx-d1"></i><i class="gx-d2"></i><i class="gx-d3"></i></span>
+        <span class="geo geo-back" aria-hidden="true"><i class="gx-b1"></i><i class="gx-b2"></i><i class="gx-b3"></i></span>
         <div class="sq"><img src="img/hero.webp" alt="Il cortile alberato del Campus Monza visto dall’alto" width="1920" height="1080" fetchpriority="high" decoding="async"></div>
-        <span class="geo geo-front" aria-hidden="true"><i class="gx-d4"></i><i class="gx-d5"></i><i class="gx-d6"></i><i class="gx-d7"></i></span>
+        <span class="geo geo-front" aria-hidden="true"><i class="gx-f1"></i><i class="gx-f2"></i><i class="gx-f3"></i><i class="gx-f4"></i><i class="gx-f5"></i><i class="gx-f6"></i><i class="gx-f7"></i><i class="gx-f8"></i></span>
       </div>
     </div>
   </section>
